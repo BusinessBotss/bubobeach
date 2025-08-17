@@ -3,76 +3,168 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bubo Beach - Reserva</title>
+  <title>Formulario de Reserva</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-[#FDFBF7] flex items-center justify-center min-h-screen">
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
 
-  <!-- Bloque Formulario Reserva Bubo Beach -->
-  <div class="bg-white shadow-2xl rounded-2xl p-8 max-w-lg w-full border border-[#C89B4E]/30">
-    <h2 class="text-3xl font-bold text-center text-[#C89B4E] mb-6">Reserva tu Mesa</h2>
+  <!-- Bloque Formulario Reserva -->
+  <div class="bg-white shadow-xl rounded-xl p-8 max-w-md w-full">
+    <!-- Selector de idioma -->
+    <div class="flex justify-end mb-4">
+      <select id="langSelect" class="rounded-lg border-gray-300 shadow-sm focus:ring-green-500 focus:border-green-500 text-sm">
+        <option value="es">Español</option>
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+        <option value="it">Italiano</option>
+      </select>
+    </div>
 
-    <form id="reservaForm" class="space-y-5">
+    <h2 id="form-title" class="text-2xl font-bold text-center text-gray-800 mb-6">Reserva tu Mesa</h2>
+
+    <form id="reservaForm" class="space-y-4">
       <div>
-        <label class="block text-sm font-semibold text-gray-800">Nombre Completo</label>
-        <input type="text" id="nombre" placeholder="Tu nombre completo" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:ring-[#C89B4E] focus:border-[#C89B4E]">
+        <label id="label-nombre" class="block text-sm font-medium text-gray-700">Nombre</label>
+        <input type="text" id="nombre" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:ring-green-500 focus:border-green-500">
       </div>
 
       <div>
-        <label class="block text-sm font-semibold text-gray-800">Teléfono</label>
-        <input type="tel" id="telefono" placeholder="+34 600 000 000" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:ring-[#C89B4E] focus:border-[#C89B4E]">
+        <label id="label-telefono" class="block text-sm font-medium text-gray-700">Teléfono</label>
+        <input type="tel" id="telefono" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:ring-green-500 focus:border-green-500">
       </div>
 
       <div>
-        <label class="block text-sm font-semibold text-gray-800">Email</label>
-        <input type="email" id="email" placeholder="tu@email.com" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:ring-[#C89B4E] focus:border-[#C89B4E]">
-      </div>
-
-      <div class="grid grid-cols-2 gap-4">
-        <div>
-          <label class="block text-sm font-semibold text-gray-800">Fecha</label>
-          <input type="date" id="fecha" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:ring-[#C89B4E] focus:border-[#C89B4E]">
-        </div>
-        <div>
-          <label class="block text-sm font-semibold text-gray-800">Personas</label>
-          <input type="number" id="personas" min="1" placeholder="2" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:ring-[#C89B4E] focus:border-[#C89B4E]">
-        </div>
+        <label id="label-email" class="block text-sm font-medium text-gray-700">Email</label>
+        <input type="email" id="email" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:ring-green-500 focus:border-green-500">
       </div>
 
       <div>
-        <label class="block text-sm font-semibold text-gray-800">Experiencia</label>
-        <select id="experiencia" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:ring-[#C89B4E] focus:border-[#C89B4E]">
-          <option value="">Selecciona una experiencia</option>
-          <option value="Hamaca Estándar">Hamaca Estándar</option>
-          <option value="Hamaca Premium">Hamaca Premium</option>
-          <option value="Restaurante">Restaurante</option>
-          <option value="Evento Exclusivo">Evento Exclusivo</option>
+        <label id="label-personas" class="block text-sm font-medium text-gray-700">Número de personas</label>
+        <input type="number" id="personas" min="1" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:ring-green-500 focus:border-green-500">
+      </div>
+
+      <div>
+        <label id="label-fecha" class="block text-sm font-medium text-gray-700">Fecha</label>
+        <input type="date" id="fecha" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:ring-green-500 focus:border-green-500">
+      </div>
+
+      <div>
+        <label id="label-hora" class="block text-sm font-medium text-gray-700">Hora</label>
+        <input type="time" id="hora" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:ring-green-500 focus:border-green-500">
+      </div>
+
+      <div>
+        <label id="label-experiencia" class="block text-sm font-medium text-gray-700">Experiencia</label>
+        <select id="experiencia" class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:ring-green-500 focus:border-green-500">
+          <option value="standard">Hamaca Estándar</option>
+          <option value="premium">Hamaca Premium</option>
+          <option value="restaurante">Restaurante</option>
+          <option value="evento">Evento</option>
         </select>
       </div>
 
-      <div class="flex items-start space-x-2">
-        <input type="checkbox" id="consent" required class="mt-1">
-        <label for="consent" class="text-sm text-gray-700">Acepto recibir comunicaciones de Bubo Beach y he leído la política de privacidad. Puedo darme de baja en cualquier momento.</label>
+      <div>
+        <label id="label-nota" class="block text-sm font-medium text-gray-700">Nota adicional</label>
+        <textarea id="nota" rows="2" class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:ring-green-500 focus:border-green-500"></textarea>
       </div>
 
-      <button type="submit" class="w-full bg-[#C89B4E] hover:bg-[#a77c3d] text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200">
-        Confirmar Reserva
+      <div class="flex items-start">
+        <input id="privacy" type="checkbox" required class="h-4 w-4 text-green-600 border-gray-300 rounded">
+        <label id="label-privacy" class="ml-2 block text-sm text-gray-600">Acepto recibir comunicaciones y he leído la política de privacidad</label>
+      </div>
+
+      <button id="submit-btn" type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200">
+        Confirmar por WhatsApp
       </button>
     </form>
   </div>
 
   <script>
+    const translations = {
+      es: {
+        title: "Reserva tu Mesa",
+        nombre: "Nombre",
+        telefono: "Teléfono",
+        email: "Email",
+        personas: "Número de personas",
+        fecha: "Fecha",
+        hora: "Hora",
+        experiencia: "Experiencia",
+        nota: "Nota adicional",
+        privacy: "Acepto recibir comunicaciones y he leído la política de privacidad",
+        submit: "Confirmar por WhatsApp"
+      },
+      en: {
+        title: "Book Your Table",
+        nombre: "Full Name",
+        telefono: "Phone",
+        email: "Email",
+        personas: "Number of guests",
+        fecha: "Date",
+        hora: "Time",
+        experiencia: "Experience",
+        nota: "Additional note",
+        privacy: "I accept communications and have read the privacy policy",
+        submit: "Confirm via WhatsApp"
+      },
+      fr: {
+        title: "Réservez votre Table",
+        nombre: "Nom complet",
+        telefono: "Téléphone",
+        email: "Email",
+        personas: "Nombre de personnes",
+        fecha: "Date",
+        hora: "Heure",
+        experiencia: "Expérience",
+        nota: "Note supplémentaire",
+        privacy: "J'accepte de recevoir des communications et j'ai lu la politique de confidentialité",
+        submit: "Confirmer via WhatsApp"
+      },
+      it: {
+        title: "Prenota il tuo Tavolo",
+        nombre: "Nome completo",
+        telefono: "Telefono",
+        email: "Email",
+        personas: "Numero di persone",
+        fecha: "Data",
+        hora: "Ora",
+        experiencia: "Esperienza",
+        nota: "Nota aggiuntiva",
+        privacy: "Accetto di ricevere comunicazioni e ho letto l'informativa sulla privacy",
+        submit: "Conferma su WhatsApp"
+      }
+    };
+
+    document.getElementById("langSelect").addEventListener("change", function(){
+      const lang = this.value;
+      const t = translations[lang];
+
+      document.getElementById("form-title").textContent = t.title;
+      document.getElementById("label-nombre").textContent = t.nombre;
+      document.getElementById("label-telefono").textContent = t.telefono;
+      document.getElementById("label-email").textContent = t.email;
+      document.getElementById("label-personas").textContent = t.personas;
+      document.getElementById("label-fecha").textContent = t.fecha;
+      document.getElementById("label-hora").textContent = t.hora;
+      document.getElementById("label-experiencia").textContent = t.experiencia;
+      document.getElementById("label-nota").textContent = t.nota;
+      document.getElementById("label-privacy").textContent = t.privacy;
+      document.getElementById("submit-btn").textContent = t.submit;
+    });
+
     document.getElementById("reservaForm").addEventListener("submit", function(e){
       e.preventDefault();
 
       const nombre = document.getElementById("nombre").value;
       const telefono = document.getElementById("telefono").value;
       const email = document.getElementById("email").value;
-      const fecha = document.getElementById("fecha").value;
       const personas = document.getElementById("personas").value;
+      const fecha = document.getElementById("fecha").value;
+      const hora = document.getElementById("hora").value;
       const experiencia = document.getElementById("experiencia").value;
+      const nota = document.getElementById("nota").value;
 
-      const resumen = `Nueva Reserva en Bubo Beach ✨:\n- Nombre: ${nombre}\n- Teléfono: ${telefono}\n- Email: ${email}\n- Fecha: ${fecha}\n- Personas: ${personas}\n- Experiencia: ${experiencia}`;
+      const resumen = `Nueva Reserva 🏖️:\n- Nombre: ${nombre}\n- Teléfono: ${telefono}\n- Email: ${email}\n- Personas: ${personas}\n- Fecha: ${fecha}\n- Hora: ${hora}\n- Experiencia: ${experiencia}\n${nota ? "- Nota: " + nota : ""}`;
 
       const url = `https://wa.me/34644075065?text=${encodeURIComponent(resumen)}`;
       window.open(url, "_blank");
