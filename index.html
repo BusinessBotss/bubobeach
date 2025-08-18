@@ -6,60 +6,65 @@
   <title>Formulario de Reserva</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
+    /* Estilos base y animaciones para el contexto "Beach Club" */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes pulseShadow {
-      0% { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
-      50% { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1); }
-      100% { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+      100% { transform: translateY(0px); }
     }
     
-    @keyframes slideInFromRight {
-      from { transform: translateX(100%); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
+    @keyframes sandGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
-    @keyframes ephemeralBackground {
-      0%, 100% { background-color: #1a202c; }
-      50% { background-color: #3b82f6; }
+    @keyframes shine {
+        0% { box-shadow: 0 0 0px rgba(255, 255, 255, 0); }
+        50% { box-shadow: 0 0 10px rgba(255, 255, 255, 0.4); }
+        100% { box-shadow: 0 0 0px rgba(255, 255, 255, 0); }
     }
 
-    @keyframes fadeOutIn {
-      0% { opacity: 1; transform: translateY(0); }
-      49% { opacity: 0; transform: translateY(10px); }
-      50% { opacity: 0; transform: translateY(-10px); }
-      100% { opacity: 1; transform: translateY(0); }
+    @keyframes wavyTranslate {
+      0%, 100% { transform: translateY(0); }
+      25% { transform: translateY(-3px); }
+      75% { transform: translateY(3px); }
+    }
+
+    body {
+      background-image: linear-gradient(to bottom, #d1d5db, #e5e7eb); /* Degradado suave de fondo */
     }
 
     .form-container {
-        animation: fadeIn 1s ease-in-out;
-        transition: box-shadow 0.3s ease-in-out;
-    }
-    .form-container:hover {
-        animation: pulseShadow 2s infinite;
+        animation: fadeInUp 1.2s ease-out forwards, float 5s infinite ease-in-out;
     }
 
-    #btnConfirmar {
-      animation: slideInFromRight 1s ease-out;
+    .sand-btn {
+        background-size: 200% auto;
+        animation: sandGradient 3s ease-in-out infinite;
     }
-
-    .ephemeral-animation {
-      animation: ephemeralBackground 3s infinite;
+    .sand-btn:hover {
+        background-position: right center;
     }
-
-    .fade-text-out-in {
-      animation: fadeOutIn 0.5s ease-in-out;
+    .focus-shine:focus {
+        animation: shine 1.5s infinite ease-in-out;
+    }
+    
+    .wavy-text {
+        animation: wavyTranslate 0.5s ease-in-out;
     }
   </style>
 </head>
-<body class="bg-gray-900 flex items-center justify-center min-h-screen text-white">
+<body class="bg-gray-50 flex items-center justify-center min-h-screen text-gray-800">
 
-  <div class="form-container bg-gray-800 shadow-xl rounded-xl p-8 max-w-md w-full border border-gray-700">
+  <div class="form-container bg-white shadow-2xl rounded-2xl p-8 max-w-md w-full border border-gray-200">
     <div class="flex justify-end mb-4">
-      <select id="langSelector" class="ephemeral-animation border border-gray-600 rounded-lg px-3 py-1 text-sm bg-gray-700 text-white focus:ring-blue-500 focus:border-blue-500">
+      <select id="langSelector" class="border border-gray-300 rounded-lg px-3 py-1 text-sm bg-gray-100 text-gray-800 focus:ring-blue-500 focus:border-blue-500">
         <option value="es">Español</option>
         <option value="en">English</option>
         <option value="fr">Français</option>
@@ -67,37 +72,37 @@
       </select>
     </div>
 
-    <h2 id="formTitle" class="text-2xl font-bold text-center text-white mb-6">Reserva tu Mesa</h2>
+    <h2 id="formTitle" class="text-2xl font-bold text-center text-gray-900 mb-6">Reserva tu Mesa</h2>
 
     <form id="reservaForm" class="space-y-4">
       <div>
-        <label id="labelNombre" class="block text-sm font-medium text-gray-400">Nombre</label>
-        <input type="text" id="nombre" required class="mt-1 w-full rounded-lg border-gray-600 shadow-sm bg-gray-700 text-white focus:ring-blue-500 focus:border-blue-500">
+        <label id="labelNombre" class="block text-sm font-medium text-gray-700">Nombre</label>
+        <input type="text" id="nombre" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 focus-shine">
       </div>
 
       <div>
-        <label id="labelTelefono" class="block text-sm font-medium text-gray-400">Teléfono</label>
-        <input type="tel" id="telefono" required class="mt-1 w-full rounded-lg border-gray-600 shadow-sm bg-gray-700 text-white focus:ring-blue-500 focus:border-blue-500">
+        <label id="labelTelefono" class="block text-sm font-medium text-gray-700">Teléfono</label>
+        <input type="tel" id="telefono" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 focus-shine">
       </div>
 
       <div>
-        <label id="labelPersonas" class="block text-sm font-medium text-gray-400">Número de personas</label>
-        <input type="number" id="personas" min="1" required class="mt-1 w-full rounded-lg border-gray-600 shadow-sm bg-gray-700 text-white focus:ring-blue-500 focus:border-blue-500">
+        <label id="labelPersonas" class="block text-sm font-medium text-gray-700">Número de personas</label>
+        <input type="number" id="personas" min="1" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 focus-shine">
       </div>
 
       <div>
-        <label id="labelFecha" class="block text-sm font-medium text-gray-400">Fecha</label>
-        <input type="date" id="fecha" required class="mt-1 w-full rounded-lg border-gray-600 shadow-sm bg-gray-700 text-white focus:ring-blue-500 focus:border-blue-500">
+        <label id="labelFecha" class="block text-sm font-medium text-gray-700">Fecha</label>
+        <input type="date" id="fecha" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 focus-shine">
       </div>
 
       <div>
-        <label id="labelHora" class="block text-sm font-medium text-gray-400">Hora</label>
-        <input type="time" id="hora" required class="mt-1 w-full rounded-lg border-gray-600 shadow-sm bg-gray-700 text-white focus:ring-blue-500 focus:border-blue-500">
+        <label id="labelHora" class="block text-sm font-medium text-gray-700">Hora</label>
+        <input type="time" id="hora" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 focus-shine">
       </div>
 
       <div>
-        <label id="labelExperiencia" class="block text-sm font-medium text-gray-400">Selecciona Experiencia</label>
-        <select id="experiencia" required class="mt-1 w-full rounded-lg border-gray-600 shadow-sm bg-gray-700 text-white focus:ring-blue-500 focus:border-blue-500">
+        <label id="labelExperiencia" class="block text-sm font-medium text-gray-700">Selecciona Experiencia</label>
+        <select id="experiencia" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 focus-shine">
           <option value="">-- Selecciona --</option>
           <option value="Restaurante">Restaurante</option>
           <option value="Piscina">Piscina</option>
@@ -105,7 +110,7 @@
         </select>
       </div>
 
-      <button id="btnConfirmar" type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200">
+      <button id="btnConfirmar" type="submit" class="w-full text-gray-800 font-semibold py-3 px-6 rounded-lg transition-all duration-200 sand-btn" style="background-image: linear-gradient(to right, #f5d4a1, #f2c78a, #f5d4a1);">
         Confirmar por WhatsApp
       </button>
     </form>
@@ -122,6 +127,7 @@
         hora: "Hora",
         experiencia: "Selecciona Experiencia",
         confirmar: "Confirmar por WhatsApp",
+        select_placeholder: "-- Selecciona --",
         restaurante: "Restaurante",
         piscina: "Piscina",
         evento: "Organizar Evento"
@@ -135,6 +141,7 @@
         hora: "Time",
         experiencia: "Select Experience",
         confirmar: "Confirm via WhatsApp",
+        select_placeholder: "-- Select --",
         restaurante: "Restaurant",
         piscina: "Pool",
         evento: "Organize Event"
@@ -148,6 +155,7 @@
         hora: "Heure",
         experiencia: "Sélectionnez une expérience",
         confirmar: "Confirmer par WhatsApp",
+        select_placeholder: "-- Sélectionnez --",
         restaurante: "Restaurant",
         piscina: "Piscine",
         evento: "Organiser un événement"
@@ -161,16 +169,17 @@
         hora: "Ora",
         experiencia: "Seleziona Esperienza",
         confirmar: "Conferma via WhatsApp",
+        select_placeholder: "-- Seleziona --",
         restaurante: "Ristorante",
         piscina: "Piscina",
         evento: "Organizza un evento"
       }
     };
 
-    const experienceOptions = {
-        Restaurante: 'restaurante',
-        Piscina: 'piscina',
-        'Organizar Evento': 'evento'
+    const experienceOptionsMap = {
+        "Restaurante": 'restaurante',
+        "Piscina": 'piscina',
+        "Organizar Evento": 'evento'
     };
 
     document.getElementById("langSelector").addEventListener("change", function() {
@@ -189,10 +198,10 @@
       for (const [id, key] of Object.entries(elementsToTranslate)) {
         const element = document.getElementById(id);
         if (element) {
-          element.classList.add("fade-text-out-in");
+          element.classList.add("wavy-text");
           setTimeout(() => {
             element.textContent = translations[lang][key];
-            element.classList.remove("fade-text-out-in");
+            element.classList.remove("wavy-text");
           }, 250);
         }
       }
@@ -200,20 +209,20 @@
       const experienciaSelect = document.getElementById("experiencia");
       const options = experienciaSelect.options;
 
-      experienciaSelect.classList.add("fade-text-out-in");
+      experienciaSelect.classList.add("wavy-text");
       setTimeout(() => {
         for(let i = 0; i < options.length; i++) {
-            const originalValue = options[i].value;
-            if (originalValue) {
-                const translationKey = experienceOptions[originalValue];
+            if (i === 0) {
+                options[i].textContent = translations[lang].select_placeholder;
+            } else {
+                const originalValue = options[i].value;
+                const translationKey = experienceOptionsMap[originalValue];
                 if (translationKey) {
                     options[i].textContent = translations[lang][translationKey];
                 }
-            } else {
-                options[i].textContent = `-- ${translations[lang]['experiencia'].split(' ')[0]} --`;
             }
         }
-        experienciaSelect.classList.remove("fade-text-out-in");
+        experienciaSelect.classList.remove("wavy-text");
       }, 250);
     });
 
