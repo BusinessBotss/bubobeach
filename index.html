@@ -53,30 +53,44 @@
       --font-size-3xl: 1.875rem;
     }
 
-    /* Dark theme */
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg-primary: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
-        --bg-secondary: linear-gradient(45deg, #1e293b, #334155);
-        --bg-card: rgba(30, 41, 59, 0.95);
-        --text-primary: #f8fafc;
-        --text-secondary: #cbd5e1;
-        --text-muted: #94a3b8;
-        --border-color: rgba(71, 85, 105, 0.8);
-        --shadow-color: rgba(0, 0, 0, 0.3);
-      }
+    /* Dark theme variables */
+    .dark-theme {
+      --bg-primary: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%) !important;
+      --bg-secondary: linear-gradient(45deg, #1e293b, #334155) !important;
+      --bg-card: rgba(30, 41, 59, 0.95) !important;
+      --text-primary: #f8fafc !important;
+      --text-secondary: #cbd5e1 !important;
+      --text-muted: #94a3b8 !important;
+      --border-color: rgba(71, 85, 105, 0.8) !important;
+      --shadow-color: rgba(0, 0, 0, 0.3) !important;
     }
 
-    /* Manual dark theme toggle */
-    [data-theme="dark"] {
-      --bg-primary: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
-      --bg-secondary: linear-gradient(45deg, #1e293b, #334155);
-      --bg-card: rgba(30, 41, 59, 0.95);
-      --text-primary: #f8fafc;
-      --text-secondary: #cbd5e1;
-      --text-muted: #94a3b8;
-      --border-color: rgba(71, 85, 105, 0.8);
-      --shadow-color: rgba(0, 0, 0, 0.3);
+    /* Dark theme background overlay */
+    .dark-theme::before {
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(30, 41, 59, 0.4) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(51, 65, 85, 0.4) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(15, 23, 42, 0.3) 0%, transparent 50%) !important;
+    }
+
+    /* Light theme (default) */
+    .light-theme {
+      --bg-primary: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 50%, #10b981 100%) !important;
+      --bg-secondary: linear-gradient(45deg, #f8fafc, #e2e8f0) !important;
+      --bg-card: rgba(248, 250, 252, 0.95) !important;
+      --text-primary: #0f172a !important;
+      --text-secondary: #475569 !important;
+      --text-muted: #64748b !important;
+      --border-color: rgba(226, 232, 240, 0.8) !important;
+      --shadow-color: rgba(15, 23, 42, 0.1) !important;
+    }
+
+    /* Light theme background overlay */
+    .light-theme::before {
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(14, 165, 233, 0.2) 0%, transparent 50%) !important;
     }
 
     @keyframes fadeInUp {
@@ -1092,29 +1106,39 @@
     const moonIcon = document.getElementById('moonIcon');
     const body = document.body;
 
-    // Check for saved theme preference or default to light mode
-    const currentTheme = localStorage.getItem('theme') || 'light';
-    if (currentTheme === 'dark') {
-      body.setAttribute('data-theme', 'dark');
-      sunIcon.classList.add('hidden');
-      moonIcon.classList.remove('hidden');
+    // Initialize theme
+    function initTheme() {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      applyTheme(savedTheme);
     }
 
-    themeToggle.addEventListener('click', () => {
-      const isDark = body.getAttribute('data-theme') === 'dark';
+    // Apply theme
+    function applyTheme(theme) {
+      // Remove existing theme classes
+      body.classList.remove('light-theme', 'dark-theme');
       
-      if (isDark) {
-        body.removeAttribute('data-theme');
-        sunIcon.classList.remove('hidden');
-        moonIcon.classList.add('hidden');
-        localStorage.setItem('theme', 'light');
-      } else {
-        body.setAttribute('data-theme', 'dark');
+      if (theme === 'dark') {
+        body.classList.add('dark-theme');
         sunIcon.classList.add('hidden');
         moonIcon.classList.remove('hidden');
-        localStorage.setItem('theme', 'dark');
+      } else {
+        body.classList.add('light-theme');
+        sunIcon.classList.remove('hidden');
+        moonIcon.classList.add('hidden');
       }
+      
+      localStorage.setItem('theme', theme);
+    }
+
+    // Theme toggle click handler
+    themeToggle.addEventListener('click', () => {
+      const isDark = body.classList.contains('dark-theme');
+      const newTheme = isDark ? 'light' : 'dark';
+      applyTheme(newTheme);
     });
+
+    // Initialize theme on page load
+    initTheme();
 
     // Privacy Policy Modal
     const privacyBtn = document.getElementById('privacyBtn');
@@ -1408,5 +1432,5 @@
       }, 100);
     });
   </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9714f3bd47560469',t:'MTc1NTU1NzIzNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9714fdc914f4c906',t:'MTc1NTU1NzY0OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
