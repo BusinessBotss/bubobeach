@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formulario de Reserva - Beach Club</title>
+  <meta name="description" content="Reserva tu mesa en nuestro exclusivo beach club. Formulario rápido y seguro con confirmación por WhatsApp.">
+  <meta name="theme-color" content="#3b82f6">
+  <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiQmVhY2ggQ2x1YiBSZXNlcnZhcyIsInNob3J0X25hbWUiOiJCZWFjaCBDbHViIiwic3RhcnRfdXJsIjoiLyIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwiYmFja2dyb3VuZF9jb2xvciI6IiNmOWZhZmIiLCJ0aGVtZV9jb2xvciI6IiMzYjgyZjYiLCJpY29ucyI6W3sic3JjIjoiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCM2FXUjBhRDBpTVRJNElpQm9aV2xuYUhROUlqRXlPQ0lpSUhacFpYZENiM2c5SWpBZ01DQXhNamd1TURBd01EQXhNamd1TURBd01EQWlJSGh0Ykc1elBTSm9kSFJ3T2k4dmQzZDNMbmN6TG05eVp5OHlNREF3TDNOMlp5SStQR05wY21Oc1pTQmplRDBpTmpRaUlHTjVQU0kyTkNJZ2NqMGlOVEFpSUdacGJHdzlJaU16WWpneVpqWWlMejQ4TDNOMlp6ND0iLCJzaXplcyI6IjE5MngxOTIiLCJ0eXBlIjoiaW1hZ2Uvc3ZnK3htbCJ9XX0=">
+  <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgdmlld0JveD0iMCAwIDEyOC4wMDAwMTI4LjAwMDAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxjaXJjbGUgY3g9IjY0IiBjeT0iNjQiIHI9IjUwIiBmaWxsPSIjM2I4MmY2Ii8+PC9zdmc+">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root {
@@ -394,6 +398,16 @@
       constructor() {
         this.currentTheme = localStorage.getItem('theme') || 'light';
         this.userLocation = null;
+        this.currentLanguage = 'es';
+        this.analytics = {
+          startTime: Date.now(),
+          interactions: 0,
+          fieldCompletions: {},
+          errors: []
+        };
+        this.autoSaveInterval = null;
+        this.rateLimitAttempts = 0;
+        this.maxAttempts = 3;
         this.init();
       }
 
@@ -403,6 +417,12 @@
         this.setupFormValidation();
         this.setupEventListeners();
         this.setupServiceWorker();
+        this.setupAutoSave();
+        this.setupAnalytics();
+        this.setupSmartSuggestions();
+        this.setupSecurity();
+        this.setupPWA();
+        this.recoverFormData();
       }
 
       // Theme Management
@@ -590,6 +610,302 @@
         }
       }
 
+      // Auto-save functionality
+      setupAutoSave() {
+        this.autoSaveInterval = setInterval(() => {
+          this.saveFormData();
+        }, 30000); // Save every 30 seconds
+
+        // Save on form changes
+        const form = document.getElementById('reservationForm');
+        form.addEventListener('input', () => {
+          clearTimeout(this.saveTimeout);
+          this.saveTimeout = setTimeout(() => {
+            this.saveFormData();
+          }, 2000);
+        });
+      }
+
+      saveFormData() {
+        const form = document.getElementById('reservationForm');
+        const formData = new FormData(form);
+        const data = {};
+        
+        for (let [key, value] of formData.entries()) {
+          data[key] = value;
+        }
+        
+        data.timestamp = Date.now();
+        data.language = this.currentLanguage;
+        
+        localStorage.setItem('autoSavedReservation', JSON.stringify(data));
+        
+        // Show subtle save indicator
+        this.showSaveIndicator();
+      }
+
+      showSaveIndicator() {
+        const indicator = document.createElement('div');
+        indicator.className = 'fixed top-4 right-20 bg-green-500 text-white px-3 py-1 rounded text-sm opacity-0 transition-opacity duration-300';
+        indicator.textContent = '💾 Guardado';
+        document.body.appendChild(indicator);
+        
+        setTimeout(() => indicator.style.opacity = '1', 100);
+        setTimeout(() => {
+          indicator.style.opacity = '0';
+          setTimeout(() => indicator.remove(), 300);
+        }, 2000);
+      }
+
+      recoverFormData() {
+        const saved = localStorage.getItem('autoSavedReservation');
+        if (saved) {
+          try {
+            const data = JSON.parse(saved);
+            const timeDiff = Date.now() - data.timestamp;
+            
+            // Only recover if less than 24 hours old
+            if (timeDiff < 24 * 60 * 60 * 1000) {
+              this.showRecoveryPrompt(data);
+            }
+          } catch (error) {
+            console.log('Error recovering form data:', error);
+          }
+        }
+      }
+
+      showRecoveryPrompt(data) {
+        const prompt = document.createElement('div');
+        prompt.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+        prompt.innerHTML = `
+          <div class="bg-white rounded-lg p-6 max-w-md mx-4">
+            <h3 class="text-lg font-bold mb-4">🔄 Recuperar datos</h3>
+            <p class="text-gray-600 mb-4">Encontramos datos de una reserva anterior. ¿Deseas recuperarlos?</p>
+            <div class="flex gap-3">
+              <button id="recoverYes" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Sí, recuperar</button>
+              <button id="recoverNo" class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400">No, empezar nuevo</button>
+            </div>
+          </div>
+        `;
+        
+        document.body.appendChild(prompt);
+        
+        document.getElementById('recoverYes').onclick = () => {
+          this.fillFormWithData(data);
+          prompt.remove();
+        };
+        
+        document.getElementById('recoverNo').onclick = () => {
+          localStorage.removeItem('autoSavedReservation');
+          prompt.remove();
+        };
+      }
+
+      fillFormWithData(data) {
+        Object.keys(data).forEach(key => {
+          const field = document.getElementById(key);
+          if (field && data[key]) {
+            field.value = data[key];
+          }
+        });
+        
+        if (data.language && data.language !== this.currentLanguage) {
+          document.getElementById('langSelector').value = data.language;
+          this.updateLanguage(data.language);
+        }
+      }
+
+      // Analytics and user behavior tracking
+      setupAnalytics() {
+        // Track form interactions
+        const form = document.getElementById('reservationForm');
+        const inputs = form.querySelectorAll('input, select, textarea');
+        
+        inputs.forEach(input => {
+          input.addEventListener('focus', () => {
+            this.analytics.interactions++;
+            this.analytics.fieldCompletions[input.name] = this.analytics.fieldCompletions[input.name] || { focuses: 0, completions: 0 };
+            this.analytics.fieldCompletions[input.name].focuses++;
+          });
+          
+          input.addEventListener('blur', () => {
+            if (input.value.trim()) {
+              this.analytics.fieldCompletions[input.name].completions++;
+            }
+          });
+        });
+
+        // Track time spent on form
+        window.addEventListener('beforeunload', () => {
+          this.analytics.totalTime = Date.now() - this.analytics.startTime;
+          localStorage.setItem('formAnalytics', JSON.stringify(this.analytics));
+        });
+      }
+
+      // Smart suggestions based on user input
+      setupSmartSuggestions() {
+        const phoneInput = document.getElementById('phone');
+        const nameInput = document.getElementById('name');
+        
+        // Phone number formatting
+        phoneInput.addEventListener('input', (e) => {
+          let value = e.target.value.replace(/\D/g, '');
+          
+          // Auto-format based on detected country
+          if (value.startsWith('34')) {
+            // Spanish format
+            value = value.replace(/(\d{2})(\d{3})(\d{3})(\d{3})/, '+$1 $2 $3 $4');
+          } else if (value.startsWith('49')) {
+            // German format
+            value = value.replace(/(\d{2})(\d{2})(\d{8})/, '+$1 $2 $3');
+          } else if (value.startsWith('33')) {
+            // French format
+            value = value.replace(/(\d{2})(\d{1})(\d{2})(\d{2})(\d{2})(\d{2})/, '+$1 $2 $3 $4 $5 $6');
+          }
+          
+          e.target.value = value;
+        });
+
+        // Name capitalization
+        nameInput.addEventListener('blur', (e) => {
+          const words = e.target.value.toLowerCase().split(' ');
+          const capitalized = words.map(word => 
+            word.charAt(0).toUpperCase() + word.slice(1)
+          ).join(' ');
+          e.target.value = capitalized;
+        });
+
+        // Smart date suggestions
+        const dateInput = document.getElementById('date');
+        dateInput.addEventListener('focus', () => {
+          const today = new Date();
+          const weekend = new Date(today);
+          weekend.setDate(today.getDate() + (6 - today.getDay())); // Next Saturday
+          
+          if (!dateInput.value) {
+            this.showDateSuggestions(weekend);
+          }
+        });
+      }
+
+      showDateSuggestions(suggestedDate) {
+        const suggestions = document.createElement('div');
+        suggestions.className = 'absolute bg-white border rounded-lg shadow-lg p-3 mt-1 z-10';
+        suggestions.innerHTML = `
+          <div class="text-sm text-gray-600 mb-2">Sugerencias:</div>
+          <button type="button" class="block w-full text-left px-2 py-1 hover:bg-gray-100 rounded text-sm" onclick="document.getElementById('date').value='${new Date().toISOString().split('T')[0]}'; this.parentElement.remove();">
+            Hoy - ${new Date().toLocaleDateString()}
+          </button>
+          <button type="button" class="block w-full text-left px-2 py-1 hover:bg-gray-100 rounded text-sm" onclick="document.getElementById('date').value='${suggestedDate.toISOString().split('T')[0]}'; this.parentElement.remove();">
+            Fin de semana - ${suggestedDate.toLocaleDateString()}
+          </button>
+        `;
+        
+        const dateField = document.getElementById('date');
+        dateField.parentElement.style.position = 'relative';
+        dateField.parentElement.appendChild(suggestions);
+        
+        // Remove suggestions when clicking outside
+        setTimeout(() => {
+          document.addEventListener('click', function removeSuggestions(e) {
+            if (!suggestions.contains(e.target) && e.target !== dateField) {
+              suggestions.remove();
+              document.removeEventListener('click', removeSuggestions);
+            }
+          });
+        }, 100);
+      }
+
+      // Enhanced security measures
+      setupSecurity() {
+        // Rate limiting for form submissions
+        const submitBtn = document.getElementById('submitBtn');
+        const originalSubmit = this.handleFormSubmit.bind(this);
+        
+        this.handleFormSubmit = (e) => {
+          if (this.rateLimitAttempts >= this.maxAttempts) {
+            e.preventDefault();
+            this.showNotification('Demasiados intentos. Espera 5 minutos.', 'error');
+            
+            setTimeout(() => {
+              this.rateLimitAttempts = 0;
+            }, 5 * 60 * 1000); // 5 minutes
+            return;
+          }
+          
+          this.rateLimitAttempts++;
+          originalSubmit(e);
+        };
+
+        // Input sanitization
+        const textInputs = document.querySelectorAll('input[type="text"], textarea');
+        textInputs.forEach(input => {
+          input.addEventListener('input', (e) => {
+            // Remove potentially harmful characters
+            e.target.value = e.target.value.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
+          });
+        });
+
+        // Honeypot field for bot detection
+        const honeypot = document.createElement('input');
+        honeypot.type = 'text';
+        honeypot.name = 'website';
+        honeypot.style.display = 'none';
+        honeypot.tabIndex = -1;
+        honeypot.autocomplete = 'off';
+        document.getElementById('reservationForm').appendChild(honeypot);
+      }
+
+      // Progressive Web App features
+      setupPWA() {
+        // Add to home screen prompt
+        let deferredPrompt;
+        
+        window.addEventListener('beforeinstallprompt', (e) => {
+          e.preventDefault();
+          deferredPrompt = e;
+          this.showInstallPrompt();
+        });
+
+        // Handle app installation
+        window.addEventListener('appinstalled', () => {
+          this.showNotification('¡App instalada correctamente!');
+          deferredPrompt = null;
+        });
+      }
+
+      showInstallPrompt() {
+        const installBanner = document.createElement('div');
+        installBanner.className = 'fixed bottom-4 left-4 right-4 bg-blue-600 text-white p-4 rounded-lg shadow-lg z-50';
+        installBanner.innerHTML = `
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="font-semibold">📱 Instalar App</div>
+              <div class="text-sm opacity-90">Accede más rápido a las reservas</div>
+            </div>
+            <div class="flex gap-2">
+              <button id="installApp" class="bg-white text-blue-600 px-3 py-1 rounded text-sm font-medium">Instalar</button>
+              <button id="dismissInstall" class="text-white opacity-75 hover:opacity-100">✕</button>
+            </div>
+          </div>
+        `;
+        
+        document.body.appendChild(installBanner);
+        
+        document.getElementById('installApp').onclick = async () => {
+          if (deferredPrompt) {
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            deferredPrompt = null;
+          }
+          installBanner.remove();
+        };
+        
+        document.getElementById('dismissInstall').onclick = () => {
+          installBanner.remove();
+        };
+      }
+
       // Form submission with loading state
       async handleFormSubmit(e) {
         e.preventDefault();
@@ -654,29 +970,77 @@
       }
 
       sendWhatsAppMessage(data) {
-        let message = `🏖️ *Nueva Reserva Beach Club*\n\n`;
-        message += `👤 *Nombre:* ${data.name}\n`;
-        message += `📞 *Teléfono:* ${data.phone}\n`;
-        message += `📅 *Fecha:* ${data.date}\n`;
-        message += `🕐 *Hora:* ${data.time}\n`;
-        message += `👥 *Personas:* ${data.guests}\n`;
+        // Create English summary for business use
+        let englishMessage = `🏖️ *New Beach Club Reservation*\n\n`;
+        englishMessage += `👤 *Name:* ${data.name}\n`;
+        englishMessage += `📞 *Phone:* ${data.phone}\n`;
+        englishMessage += `📅 *Date:* ${data.date}\n`;
+        englishMessage += `🕐 *Time:* ${data.time}\n`;
+        englishMessage += `👥 *Guests:* ${data.guests}\n`;
         
         if (data.eventType) {
-          const eventText = document.querySelector(`#eventType option[value="${data.eventType}"]`).textContent;
-          message += `🎉 *Tipo de evento:* ${eventText}\n`;
+          const eventTranslations = {
+            'dining': 'Dining',
+            'celebration': 'Celebration',
+            'business': 'Corporate Event',
+            'organize': 'Event Organization'
+          };
+          englishMessage += `🎉 *Event Type:* ${eventTranslations[data.eventType] || data.eventType}\n`;
         }
         
         if (data.comments) {
-          message += `💬 *Comentarios:* ${data.comments}\n`;
+          englishMessage += `💬 *Comments:* ${data.comments}\n`;
         }
 
         if (data.location) {
-          message += `📍 *Ubicación aproximada:* ${data.location.lat.toFixed(4)}, ${data.location.lng.toFixed(4)}\n`;
+          englishMessage += `📍 *Approximate Location:* ${data.location.lat.toFixed(4)}, ${data.location.lng.toFixed(4)}\n`;
         }
 
-        const whatsappNumber = "34600000000";
-        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+        // Add language identifier if form was filled in non-Spanish
+        if (this.currentLanguage !== 'es') {
+          const languageNames = {
+            'en': 'English',
+            'fr': 'French', 
+            'it': 'Italian',
+            'de': 'German'
+          };
+          englishMessage += `🌐 *Form Language:* ${languageNames[this.currentLanguage]}\n`;
+        }
+
+        // Add timestamp and unique ID
+        const reservationId = Date.now().toString(36).toUpperCase();
+        englishMessage += `🆔 *Reservation ID:* ${reservationId}\n`;
+        englishMessage += `⏰ *Submitted:* ${new Date().toLocaleString('en-US')}\n`;
+
+        // Add analytics data for business insights
+        if (this.analytics.totalTime) {
+          const timeSpent = Math.round((Date.now() - this.analytics.startTime) / 1000);
+          englishMessage += `📊 *Form completion time:* ${timeSpent}s\n`;
+        }
+
+        const whatsappNumber = "34644075065";
+        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(englishMessage)}`;
         window.open(whatsappURL, '_blank');
+
+        // Store reservation with ID for future reference
+        const reservationRecord = {
+          ...data,
+          id: reservationId,
+          timestamp: new Date().toISOString(),
+          language: this.currentLanguage,
+          analytics: this.analytics
+        };
+        
+        // Save to localStorage for business records
+        const existingReservations = JSON.parse(localStorage.getItem('businessReservations') || '[]');
+        existingReservations.push(reservationRecord);
+        
+        // Keep only last 50 reservations to prevent storage overflow
+        if (existingReservations.length > 50) {
+          existingReservations.splice(0, existingReservations.length - 50);
+        }
+        
+        localStorage.setItem('businessReservations', JSON.stringify(existingReservations));
       }
 
       showNotification(message, type = 'success') {
@@ -692,6 +1056,7 @@
       }
 
       updateLanguage(lang) {
+        this.currentLanguage = lang; // Track current language
         const t = translations[lang];
         
         // Add wavy animation to text elements
@@ -723,6 +1088,9 @@
         document.getElementById('celebrationOption').textContent = t.celebrationOption;
         document.getElementById('businessOption').textContent = t.businessOption;
         document.getElementById('organizeOption').textContent = t.organizeOption;
+
+        // Save language preference
+        localStorage.setItem('preferredLanguage', lang);
       }
     }
 
@@ -873,6 +1241,18 @@
       // Set minimum date to today
       document.getElementById('date').min = new Date().toISOString().split('T')[0];
       
+      // Auto-detect and set preferred language
+      const savedLanguage = localStorage.getItem('preferredLanguage');
+      const browserLanguage = navigator.language.split('-')[0];
+      
+      if (savedLanguage && translations[savedLanguage]) {
+        document.getElementById('langSelector').value = savedLanguage;
+        app.updateLanguage(savedLanguage);
+      } else if (translations[browserLanguage]) {
+        document.getElementById('langSelector').value = browserLanguage;
+        app.updateLanguage(browserLanguage);
+      }
+      
       // Load any saved form data
       const savedReservation = localStorage.getItem('lastReservation');
       if (savedReservation) {
@@ -882,6 +1262,14 @@
         } catch (error) {
           console.log('Error loading saved reservation:', error);
         }
+      }
+
+      // Show welcome message for first-time users
+      if (!localStorage.getItem('hasVisited')) {
+        setTimeout(() => {
+          app.showNotification('¡Bienvenido! Completa el formulario para reservar tu mesa 🏖️');
+          localStorage.setItem('hasVisited', 'true');
+        }, 1000);
       }
     });
 
@@ -909,5 +1297,6 @@
       }
     });
   </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'971297326201eca9',t:'MTc1NTUzMjQ3NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9712ac3cc7c683bd',t:'MTc1NTUzMzMzNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
+
