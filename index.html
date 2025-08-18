@@ -5,14 +5,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formulario de Reserva</title>
   <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <style>
+    /* Animación de desvanecimiento para el bloque de formulario 
+    y los elementos de entrada para un efecto suave. 
+    */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-  <!-- Bloque Formulario Reserva -->
-  <div class="bg-white shadow-xl rounded-xl p-8 max-w-md w-full">
-    <!-- Selector de idioma -->
+    /* Animación de sombra para el bloque del formulario al pasar el ratón.
+    */
+    @keyframes pulseShadow {
+      0% { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+      50% { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1); }
+      100% { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+    }
+    
+    /* Animación para el botón de confirmación.
+    */
+    @keyframes slideInFromRight {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    /* Animación de color de fondo efímero para el selector de idioma.
+    */
+    @keyframes ephemeralBackground {
+      0%, 100% { background-color: #1a202c; }
+      50% { background-color: #3b82f6; } 
+    }
+
+    /* Animación para el texto del título y las etiquetas
+    para que se desvanezcan y cambien de idioma.
+    */
+    @keyframes fadeOutIn {
+      0% { opacity: 1; transform: translateY(0); }
+      49% { opacity: 0; transform: translateY(10px); }
+      50% { opacity: 0; transform: translateY(-10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .form-container {
+        animation: fadeIn 1s ease-in-out;
+        transition: box-shadow 0.3s ease-in-out;
+    }
+    .form-container:hover {
+        animation: pulseShadow 2s infinite;
+    }
+
+    #btnConfirmar {
+      animation: slideInFromRight 1s ease-out;
+    }
+
+    .ephemeral-animation {
+      animation: ephemeralBackground 3s infinite;
+    }
+
+    .fade-text-out-in {
+      animation: fadeOutIn 0.5s ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 flex items-center justify-center min-h-screen text-white">
+
+  <div class="form-container bg-gray-800 shadow-xl rounded-xl p-8 max-w-md w-full border border-gray-700">
     <div class="flex justify-end mb-4">
-      <select id="langSelect" class="rounded-lg border-gray-300 shadow-sm focus:ring-green-500 focus:border-green-500 text-sm">
+      <select id="langSelector" class="ephemeral-animation border border-gray-600 rounded-lg px-3 py-1 text-sm bg-gray-700 text-white focus:ring-blue-500 focus:border-blue-500">
         <option value="es">Español</option>
         <option value="en">English</option>
         <option value="fr">Français</option>
@@ -20,60 +79,45 @@
       </select>
     </div>
 
-    <h2 id="form-title" class="text-2xl font-bold text-center text-gray-800 mb-6">Reserva tu Mesa</h2>
+    <h2 id="formTitle" class="text-2xl font-bold text-center text-white mb-6">Reserva tu Mesa</h2>
 
     <form id="reservaForm" class="space-y-4">
       <div>
-        <label id="label-nombre" class="block text-sm font-medium text-gray-700">Nombre</label>
-        <input type="text" id="nombre" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:ring-green-500 focus:border-green-500">
+        <label id="labelNombre" class="block text-sm font-medium text-gray-400">Nombre</label>
+        <input type="text" id="nombre" required class="mt-1 w-full rounded-lg border-gray-600 shadow-sm bg-gray-700 text-white focus:ring-blue-500 focus:border-blue-500">
       </div>
 
       <div>
-        <label id="label-telefono" class="block text-sm font-medium text-gray-700">Teléfono</label>
-        <input type="tel" id="telefono" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:ring-green-500 focus:border-green-500">
+        <label id="labelTelefono" class="block text-sm font-medium text-gray-400">Teléfono</label>
+        <input type="tel" id="telefono" required class="mt-1 w-full rounded-lg border-gray-600 shadow-sm bg-gray-700 text-white focus:ring-blue-500 focus:border-blue-500">
       </div>
 
       <div>
-        <label id="label-email" class="block text-sm font-medium text-gray-700">Email</label>
-        <input type="email" id="email" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:ring-green-500 focus:border-green-500">
+        <label id="labelPersonas" class="block text-sm font-medium text-gray-400">Número de personas</label>
+        <input type="number" id="personas" min="1" required class="mt-1 w-full rounded-lg border-gray-600 shadow-sm bg-gray-700 text-white focus:ring-blue-500 focus:border-blue-500">
       </div>
 
       <div>
-        <label id="label-personas" class="block text-sm font-medium text-gray-700">Número de personas</label>
-        <input type="number" id="personas" min="1" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:ring-green-500 focus:border-green-500">
+        <label id="labelFecha" class="block text-sm font-medium text-gray-400">Fecha</label>
+        <input type="date" id="fecha" required class="mt-1 w-full rounded-lg border-gray-600 shadow-sm bg-gray-700 text-white focus:ring-blue-500 focus:border-blue-500">
       </div>
 
       <div>
-        <label id="label-fecha" class="block text-sm font-medium text-gray-700">Fecha</label>
-        <input type="date" id="fecha" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:ring-green-500 focus:border-green-500">
+        <label id="labelHora" class="block text-sm font-medium text-gray-400">Hora</label>
+        <input type="time" id="hora" required class="mt-1 w-full rounded-lg border-gray-600 shadow-sm bg-gray-700 text-white focus:ring-blue-500 focus:border-blue-500">
       </div>
 
       <div>
-        <label id="label-hora" class="block text-sm font-medium text-gray-700">Hora</label>
-        <input type="time" id="hora" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:ring-green-500 focus:border-green-500">
-      </div>
-
-      <div>
-        <label id="label-experiencia" class="block text-sm font-medium text-gray-700">Experiencia</label>
-        <select id="experiencia" class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:ring-green-500 focus:border-green-500">
-          <option value="standard">Hamaca Estándar</option>
-          <option value="premium">Hamaca Premium</option>
-          <option value="restaurante">Restaurante</option>
-          <option value="evento">Evento</option>
+        <label id="labelExperiencia" class="block text-sm font-medium text-gray-400">Selecciona Experiencia</label>
+        <select id="experiencia" required class="mt-1 w-full rounded-lg border-gray-600 shadow-sm bg-gray-700 text-white focus:ring-blue-500 focus:border-blue-500">
+          <option value="">-- Selecciona --</option>
+          <option value="Restaurante">Restaurante</option>
+          <option value="Piscina">Piscina</option>
+          <option value="Evento">Organizar Evento</option>
         </select>
       </div>
 
-      <div>
-        <label id="label-nota" class="block text-sm font-medium text-gray-700">Nota adicional</label>
-        <textarea id="nota" rows="2" class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:ring-green-500 focus:border-green-500"></textarea>
-      </div>
-
-      <div class="flex items-start">
-        <input id="privacy" type="checkbox" required class="h-4 w-4 text-green-600 border-gray-300 rounded">
-        <label id="label-privacy" class="ml-2 block text-sm text-gray-600">Acepto recibir comunicaciones y he leído la política de privacidad</label>
-      </div>
-
-      <button id="submit-btn" type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200">
+      <button id="btnConfirmar" type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200">
         Confirmar por WhatsApp
       </button>
     </form>
@@ -85,91 +129,81 @@
         title: "Reserva tu Mesa",
         nombre: "Nombre",
         telefono: "Teléfono",
-        email: "Email",
         personas: "Número de personas",
         fecha: "Fecha",
         hora: "Hora",
-        experiencia: "Experiencia",
-        nota: "Nota adicional",
-        privacy: "Acepto recibir comunicaciones y he leído la política de privacidad",
-        submit: "Confirmar por WhatsApp"
+        experiencia: "Selecciona Experiencia",
+        confirmar: "Confirmar por WhatsApp"
       },
       en: {
         title: "Book Your Table",
         nombre: "Full Name",
         telefono: "Phone",
-        email: "Email",
-        personas: "Number of guests",
+        personas: "Number of People",
         fecha: "Date",
         hora: "Time",
-        experiencia: "Experience",
-        nota: "Additional note",
-        privacy: "I accept communications and have read the privacy policy",
-        submit: "Confirm via WhatsApp"
+        experiencia: "Select Experience",
+        confirmar: "Confirm via WhatsApp"
       },
       fr: {
         title: "Réservez votre Table",
         nombre: "Nom complet",
         telefono: "Téléphone",
-        email: "Email",
         personas: "Nombre de personnes",
         fecha: "Date",
         hora: "Heure",
-        experiencia: "Expérience",
-        nota: "Note supplémentaire",
-        privacy: "J'accepte de recevoir des communications et j'ai lu la politique de confidentialité",
-        submit: "Confirmer via WhatsApp"
+        experiencia: "Sélectionnez une expérience",
+        confirmar: "Confirmer par WhatsApp"
       },
       it: {
         title: "Prenota il tuo Tavolo",
         nombre: "Nome completo",
         telefono: "Telefono",
-        email: "Email",
         personas: "Numero di persone",
         fecha: "Data",
         hora: "Ora",
-        experiencia: "Esperienza",
-        nota: "Nota aggiuntiva",
-        privacy: "Accetto di ricevere comunicazioni e ho letto l'informativa sulla privacy",
-        submit: "Conferma su WhatsApp"
+        experiencia: "Seleziona Esperienza",
+        confirmar: "Conferma via WhatsApp"
       }
     };
 
-    document.getElementById("langSelect").addEventListener("change", function(){
+    document.getElementById("langSelector").addEventListener("change", function() {
       const lang = this.value;
-      const t = translations[lang];
+      const elementsToTranslate = {
+        formTitle: "title",
+        labelNombre: "nombre",
+        labelTelefono: "telefono",
+        labelPersonas: "personas",
+        labelFecha: "fecha",
+        labelHora: "hora",
+        labelExperiencia: "experiencia",
+        btnConfirmar: "confirmar"
+      };
 
-      document.getElementById("form-title").textContent = t.title;
-      document.getElementById("label-nombre").textContent = t.nombre;
-      document.getElementById("label-telefono").textContent = t.telefono;
-      document.getElementById("label-email").textContent = t.email;
-      document.getElementById("label-personas").textContent = t.personas;
-      document.getElementById("label-fecha").textContent = t.fecha;
-      document.getElementById("label-hora").textContent = t.hora;
-      document.getElementById("label-experiencia").textContent = t.experiencia;
-      document.getElementById("label-nota").textContent = t.nota;
-      document.getElementById("label-privacy").textContent = t.privacy;
-      document.getElementById("submit-btn").textContent = t.submit;
+      for (const [id, key] of Object.entries(elementsToTranslate)) {
+        const element = document.getElementById(id);
+        if (element) {
+          element.classList.add("fade-text-out-in");
+          setTimeout(() => {
+            element.textContent = translations[lang][key];
+            element.classList.remove("fade-text-out-in");
+          }, 250); // La mitad de la duración de la animación
+        }
+      }
     });
 
-    document.getElementById("reservaForm").addEventListener("submit", function(e){
+    document.getElementById("reservaForm").addEventListener("submit", function(e) {
       e.preventDefault();
-
       const nombre = document.getElementById("nombre").value;
       const telefono = document.getElementById("telefono").value;
-      const email = document.getElementById("email").value;
       const personas = document.getElementById("personas").value;
       const fecha = document.getElementById("fecha").value;
       const hora = document.getElementById("hora").value;
       const experiencia = document.getElementById("experiencia").value;
-      const nota = document.getElementById("nota").value;
-
-      const resumen = `Nueva Reserva 🏖️:\n- Nombre: ${nombre}\n- Teléfono: ${telefono}\n- Email: ${email}\n- Personas: ${personas}\n- Fecha: ${fecha}\n- Hora: ${hora}\n- Experiencia: ${experiencia}\n${nota ? "- Nota: " + nota : ""}`;
-
+      const resumen = `Nueva Reserva 🏖️:\n- Nombre: ${nombre}\n- Teléfono: ${telefono}\n- Personas: ${personas}\n- Fecha: ${fecha}\n- Hora: ${hora}\n- Experiencia: ${experiencia}`;
       const url = `https://wa.me/34644075065?text=${encodeURIComponent(resumen)}`;
       window.open(url, "_blank");
     });
   </script>
-
 </body>
 </html>
