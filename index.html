@@ -3,29 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulario de Reserva - Beach Club</title>
-  <meta name="description" content="Reserva tu mesa en nuestro exclusivo beach club. Formulario rápido y seguro con confirmación por WhatsApp.">
-  <meta name="theme-color" content="#3b82f6">
-  <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiQmVhY2ggQ2x1YiBSZXNlcnZhcyIsInNob3J0X25hbWUiOiJCZWFjaCBDbHViIiwic3RhcnRfdXJsIjoiLyIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwiYmFja2dyb3VuZF9jb2xvciI6IiNmOWZhZmIiLCJ0aGVtZV9jb2xvciI6IiMzYjgyZjYiLCJpY29ucyI6W3sic3JjIjoiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCM2FXUjBhRDBpTVRJNElpQm9aV2xuYUhROUlqRXlPQ0lpSUhacFpYZENiM2c5SWpBZ01DQXhNamd1TURBd01EQXhNamd1TURBd01EQWlJSGh0Ykc1elBTSm9kSFJ3T2k4dmQzZDNMbmN6TG05eVp5OHlNREF3TDNOMlp5SStQR05wY21Oc1pTQmplRDBpTmpRaUlHTjVQU0kyTkNJZ2NqMGlOVEFpSUdacGJHdzlJaU16WWpneVpqWWlMejQ4TDNOMlp6ND0iLCJzaXplcyI6IjE5MngxOTIiLCJ0eXBlIjoiaW1hZ2Uvc3ZnK3htbCJ9XX0=">
-  <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgdmlld0JveD0iMCAwIDEyOC4wMDAwMTI4LjAwMDAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxjaXJjbGUgY3g9IjY0IiBjeT0iNjQiIHI9IjUwIiBmaWxsPSIjM2I4MmY2Ii8+PC9zdmc+">
+  <title>BuBo Beach Club - Reservas</title>
+  <meta name="description" content="Reserva tu experiencia en BuBo Beach Club. Restaurante, piscina y eventos exclusivos frente al mar.">
+  <meta name="theme-color" content="#0ea5e9">
+  <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiQnVCbyBCZWFjaCBDbHViIiwic2hvcnRfbmFtZSI6IkJ1Qm8gQmVhY2giLCJzdGFydF91cmwiOiIvIiwiZGlzcGxheSI6InN0YW5kYWxvbmUiLCJiYWNrZ3JvdW5kX2NvbG9yIjoiIzBmMTcyYSIsInRoZW1lX2NvbG9yIjoiIzBlYTVlOSIsImljb25zIjpbeyJzcmMiOiJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUIzYVdSMGFEMGlNVEk0SWlCb1pXbG5hSFE5SWpFeU9DSWlJSFpwWlhkQ2IzZzlJakFnTUNBeE1qZ3VNREF3TURBeE1qZ3VNREF3TURBaUlIaHRiRzV6UFNKb2RIUndPaTh2ZDNkM0xtY3pMbTl5Wnk4eU1EQXdMM04yWnlJK1BHTnBjbU5zWlNCamVEMGlOalFpSUdONVBTSTJOQ0lpSUhJOUlqVXdJaUJtYVd4c1BTSWpNR1ZoTldVNUlpOCtQQzl6ZG1jKyIsInNpemVzIjoiMTkyeDE5MiIsInR5cGUiOiJpbWFnZS9zdmcreG1sIn1dfQ==">
+  <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgdmlld0JveD0iMCAwIDEyOC4wMDAwMTI4LjAwMDAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxjaXJjbGUgY3g9IjY0IiBjeT0iNjQiIHI9IjUwIiBmaWxsPSIjMGVhNWU5Ii8+PC9zdmc+">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root {
-      /* Light theme colors */
-      --bg-primary: #f9fafb;
-      --bg-secondary: #e5e7eb;
-      --bg-card: #ffffff;
-      --text-primary: #1f2937;
-      --text-secondary: #6b7280;
-      --text-muted: #9ca3af;
-      --border-color: #e5e7eb;
-      --border-focus: #60a5fa;
-      --shadow-color: rgba(0, 0, 0, 0.1);
-      --sand-gradient: linear-gradient(45deg, #d2b48c, #f4a460, #deb887, #cd853f);
-      --accent-color: #3b82f6;
+      /* Beach Club Color Palette */
+      --ocean-blue: #0ea5e9;
+      --deep-blue: #0284c7;
+      --turquoise: #06b6d4;
+      --coral: #f97316;
+      --sand: #fbbf24;
+      --pearl: #f8fafc;
+      --seafoam: #10b981;
+      --sunset: #f59e0b;
+      
+      /* Light theme */
+      --bg-primary: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 50%, #10b981 100%);
+      --bg-secondary: linear-gradient(45deg, #f8fafc, #e2e8f0);
+      --bg-card: rgba(248, 250, 252, 0.95);
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --text-light: #ffffff;
+      --border-color: rgba(226, 232, 240, 0.8);
+      --border-focus: #0ea5e9;
+      --shadow-color: rgba(15, 23, 42, 0.1);
+      --accent-gradient: linear-gradient(135deg, #0ea5e9, #06b6d4);
+      --coral-gradient: linear-gradient(135deg, #f97316, #f59e0b);
       --success-color: #10b981;
       --error-color: #ef4444;
-      --warning-color: #f59e0b;
       
       /* Spacing and sizing */
       --spacing-xs: 0.25rem;
@@ -33,8 +43,8 @@
       --spacing-md: 1rem;
       --spacing-lg: 1.5rem;
       --spacing-xl: 2rem;
-      --border-radius: 0.5rem;
-      --border-radius-lg: 1rem;
+      --border-radius: 0.75rem;
+      --border-radius-lg: 1.5rem;
       --font-size-sm: 0.875rem;
       --font-size-base: 1rem;
       --font-size-lg: 1.125rem;
@@ -46,31 +56,27 @@
     /* Dark theme */
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg-primary: #111827;
-        --bg-secondary: #1f2937;
-        --bg-card: #374151;
-        --text-primary: #f9fafb;
-        --text-secondary: #d1d5db;
-        --text-muted: #9ca3af;
-        --border-color: #4b5563;
-        --border-focus: #60a5fa;
+        --bg-primary: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+        --bg-secondary: linear-gradient(45deg, #1e293b, #334155);
+        --bg-card: rgba(30, 41, 59, 0.95);
+        --text-primary: #f8fafc;
+        --text-secondary: #cbd5e1;
+        --text-muted: #94a3b8;
+        --border-color: rgba(71, 85, 105, 0.8);
         --shadow-color: rgba(0, 0, 0, 0.3);
-        --sand-gradient: linear-gradient(45deg, #92400e, #b45309, #d97706, #f59e0b);
       }
     }
 
     /* Manual dark theme toggle */
     [data-theme="dark"] {
-      --bg-primary: #111827;
-      --bg-secondary: #1f2937;
-      --bg-card: #374151;
-      --text-primary: #f9fafb;
-      --text-secondary: #d1d5db;
-      --text-muted: #9ca3af;
-      --border-color: #4b5563;
-      --border-focus: #60a5fa;
+      --bg-primary: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+      --bg-secondary: linear-gradient(45deg, #1e293b, #334155);
+      --bg-card: rgba(30, 41, 59, 0.95);
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --border-color: rgba(71, 85, 105, 0.8);
       --shadow-color: rgba(0, 0, 0, 0.3);
-      --sand-gradient: linear-gradient(45deg, #92400e, #b45309, #d97706, #f59e0b);
     }
 
     @keyframes fadeInUp {
@@ -79,32 +85,31 @@
     }
 
     @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-0.3125rem); }
-      100% { transform: translateY(0); }
+      0% { transform: translateY(0) rotate(0deg); }
+      33% { transform: translateY(-0.5rem) rotate(1deg); }
+      66% { transform: translateY(0.25rem) rotate(-1deg); }
+      100% { transform: translateY(0) rotate(0deg); }
     }
     
-    @keyframes sandGradient {
+    @keyframes oceanWave {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
 
-    @keyframes shine {
-        0% { box-shadow: 0 0 0 rgba(255, 255, 255, 0); }
-        50% { box-shadow: 0 0 0.625rem rgba(255, 255, 255, 0.4); }
-        100% { box-shadow: 0 0 0 rgba(255, 255, 255, 0); }
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
     }
 
-    @keyframes wavyTranslate {
-      0%, 100% { transform: translateY(0); }
-      25% { transform: translateY(-0.1875rem); }
-      75% { transform: translateY(0.1875rem); }
+    @keyframes ripple {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(1.2); opacity: 0; }
     }
 
     @keyframes pulse {
       0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
+      50% { opacity: 0.7; }
     }
 
     @keyframes slideIn {
@@ -112,1042 +117,1012 @@
       to { transform: translateX(0); opacity: 1; }
     }
 
+    @keyframes bubbleFloat {
+      0% { transform: translateY(100vh) scale(0); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-100vh) scale(1); opacity: 0; }
+    }
+
     body {
-      background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
-      min-height: 100vh;
+      background: var(--bg-primary);
+      background-attachment: fixed;
+      background-size: 400% 400%;
+      animation: oceanWave 12s ease-in-out infinite;
       color: var(--text-primary);
-      transition: background-color 0.3s ease, color 0.3s ease;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      transition: all 0.3s ease;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
     }
 
-    .form-container {
-        animation: fadeInUp 1.2s ease-out forwards, float 5s infinite ease-in-out;
-        background: var(--bg-card);
-        color: var(--text-primary);
-        border-color: var(--border-color);
-        box-shadow: 0 25px 50px -12px var(--shadow-color);
-        transition: all 0.3s ease;
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(14, 165, 233, 0.2) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: -1;
     }
 
-    .sand-btn {
-        background: var(--sand-gradient);
-        background-size: 200% auto;
-        animation: sandGradient 3s ease-in-out infinite;
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .sand-btn:hover {
-        background-position: right center;
-        transform: translateY(-0.125rem);
-        box-shadow: 0 0.5rem 1.5625rem rgba(210, 180, 140, 0.4);
+    .ocean-bg {
+      background: var(--bg-primary);
+      background-size: 400% 400%;
+      animation: oceanWave 15s ease-in-out infinite;
+      position: relative;
     }
 
-    .sand-btn:active {
-        transform: translateY(0);
-    }
-    
-    .focus-shine:focus {
-        animation: shine 1.5s infinite ease-in-out;
-        border-color: var(--border-focus);
-        outline: none;
-    }
-    
-    .wavy-text {
-        animation: wavyTranslate 0.5s ease-in-out;
+    .card {
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border-color);
+      box-shadow: 
+        0 20px 40px var(--shadow-color),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
     }
 
-    .beach-input {
-        transition: all 0.3s ease;
-        border: 2px solid var(--border-color);
-        background: var(--bg-primary);
-        color: var(--text-primary);
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transition: left 0.6s;
     }
 
-    .beach-input:focus {
-        border-color: var(--border-focus);
-        box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
+    .card:hover::before {
+      left: 100%;
     }
 
-    .beach-input::placeholder {
-        color: var(--text-muted);
+    .card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 
+        0 30px 60px var(--shadow-color),
+        0 0 0 1px rgba(255, 255, 255, 0.2);
+    }
+
+    .form-input {
+      background: var(--bg-card);
+      backdrop-filter: blur(10px);
+      border: 2px solid var(--border-color);
+      color: var(--text-primary);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+
+    .form-input:focus {
+      border-color: var(--border-focus);
+      box-shadow: 
+        0 0 0 4px rgba(14, 165, 233, 0.1),
+        0 8px 25px rgba(14, 165, 233, 0.15);
+      outline: none;
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--accent-gradient);
+      color: var(--text-light);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      border: none;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.6s;
+    }
+
+    .btn-primary:hover::before {
+      left: 100%;
+    }
+
+    .btn-primary:hover {
+      background: var(--coral-gradient);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 
+        0 15px 35px rgba(14, 165, 233, 0.4),
+        0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-primary:active {
+      transform: translateY(-1px) scale(1.02);
+    }
+
+    .floating {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    .wavy {
+      animation: wavyTranslate 2s ease-in-out infinite;
     }
 
     .theme-toggle {
-        position: fixed;
-        top: var(--spacing-lg);
-        right: var(--spacing-lg);
-        background: var(--bg-card);
-        border: 2px solid var(--border-color);
-        border-radius: 50%;
-        width: 3rem;
-        height: 3rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        z-index: 1000;
+      background: var(--bg-secondary);
+      border: 2px solid var(--border-color);
+      color: var(--text-primary);
+      transition: all 0.3s ease;
     }
 
     .theme-toggle:hover {
-        transform: scale(1.1);
-        box-shadow: 0 0.25rem 0.75rem var(--shadow-color);
+      background: var(--border-color);
+      transform: scale(1.05);
     }
 
-
-
-    .notification {
-        position: fixed;
-        top: var(--spacing-lg);
-        left: 50%;
-        transform: translateX(-50%);
-        background: var(--success-color);
-        color: white;
-        padding: var(--spacing-md) var(--spacing-lg);
-        border-radius: var(--border-radius);
-        box-shadow: 0 0.25rem 0.75rem var(--shadow-color);
-        z-index: 1001;
-        animation: slideIn 0.3s ease-out;
+    .success-message {
+      background: var(--success-color);
+      animation: slideIn 0.5s ease-out;
     }
 
-    .loading-skeleton {
-      background: linear-gradient(90deg, var(--border-color) 25%, transparent 50%, var(--border-color) 75%);
-      background-size: 200% 100%;
-      animation: pulse 1.5s infinite;
+    .error-message {
+      background: var(--error-color);
+      animation: slideIn 0.5s ease-out;
     }
 
-    /* High contrast mode support */
-    @media (prefers-contrast: high) {
-      :root {
-        --border-color: #000000;
-        --text-primary: #000000;
-        --bg-card: #ffffff;
+    .loading {
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-secondary);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent-color);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #2563eb;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 640px) {
+      .card {
+        margin: 1rem;
+        padding: 1.5rem;
       }
-      
-      [data-theme="dark"] {
-        --border-color: #ffffff;
-        --text-primary: #ffffff;
-        --bg-card: #000000;
-      }
-    }
-
-    /* Reduced motion support */
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
-    }
-
-    /* Focus visible for keyboard navigation */
-    .focus-visible {
-      outline: 2px solid var(--accent-color);
-      outline-offset: 2px;
     }
   </style>
 </head>
-<body class="bg-gray-50 flex items-center justify-center min-h-screen text-gray-800 p-4">
-
-  <!-- Theme Toggle Button -->
-  <button id="themeToggle" class="theme-toggle" aria-label="Cambiar tema" title="Cambiar entre tema claro y oscuro">
-    <span id="themeIcon">🌙</span>
-  </button>
-
-
-
-  <main class="form-container bg-white shadow-2xl rounded-2xl p-8 max-w-md w-full border border-gray-200" role="main" aria-label="Formulario de reserva">
+<body class="min-h-screen ocean-bg">
+  <!-- Top Controls -->
+  <div class="fixed top-4 right-4 z-50 flex flex-col space-y-3">
     <!-- Language Selector -->
-    <header class="flex justify-end mb-6">
-      <select id="langSelector" class="border border-gray-300 rounded-lg px-3 py-2 text-sm bg-gray-50 text-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200" aria-label="Seleccionar idioma">
-        <option value="es">🇪🇸 Español</option>
-        <option value="en">🇺🇸 English</option>
-        <option value="fr">🇫🇷 Français</option>
-        <option value="it">🇮🇹 Italiano</option>
-        <option value="de">🇩🇪 Deutsch</option>
-      </select>
-    </header>
-
-    <!-- Form Title -->
-    <section class="text-center mb-8">
-      <h1 id="formTitle" class="text-3xl font-bold text-gray-800 mb-2">Reserva tu Mesa</h1>
-      <p id="formSubtitle" class="text-gray-600">Disfruta de la mejor experiencia en nuestro beach club</p>
-    </section>
-
-    <!-- Reservation Form -->
-    <form id="reservationForm" class="space-y-6" novalidate aria-describedby="formDescription">
-      <div id="formDescription" class="sr-only">Formulario para realizar una reserva en el beach club. Todos los campos marcados son obligatorios.</div>
-      <!-- Name Field -->
-      <div>
-        <label id="nameLabel" for="name" class="block text-sm font-semibold text-gray-700 mb-2">Nombre completo <span class="text-red-500" aria-label="obligatorio">*</span></label>
-        <input type="text" id="name" name="name" required 
-               class="beach-input focus-shine w-full px-4 py-3 rounded-lg bg-gray-50 text-gray-800 placeholder-gray-500" 
-               placeholder="Tu nombre"
-               aria-describedby="nameError"
-               autocomplete="name">
-        <div id="nameError" class="text-red-500 text-sm mt-1 hidden" role="alert"></div>
-      </div>
-
-      <!-- Phone Field -->
-      <div>
-        <label id="phoneLabel" for="phone" class="block text-sm font-semibold text-gray-700 mb-2">Teléfono <span class="text-red-500" aria-label="obligatorio">*</span></label>
-        <input type="tel" id="phone" name="phone" required 
-               class="beach-input focus-shine w-full px-4 py-3 rounded-lg bg-gray-50 text-gray-800 placeholder-gray-500" 
-               placeholder="+34 600 000 000"
-               aria-describedby="phoneError"
-               autocomplete="tel">
-        <div id="phoneError" class="text-red-500 text-sm mt-1 hidden" role="alert"></div>
-      </div>
-
-      <!-- Date Field -->
-      <div>
-        <label id="dateLabel" for="date" class="block text-sm font-semibold text-gray-700 mb-2">Fecha <span class="text-red-500" aria-label="obligatorio">*</span></label>
-        <input type="date" id="date" name="date" required 
-               class="beach-input focus-shine w-full px-4 py-3 rounded-lg bg-gray-50 text-gray-800"
-               aria-describedby="dateError">
-        <div id="dateError" class="text-red-500 text-sm mt-1 hidden" role="alert"></div>
-      </div>
-
-      <!-- Time Field -->
-      <div>
-        <label id="timeLabel" for="time" class="block text-sm font-semibold text-gray-700 mb-2">Hora <span class="text-red-500" aria-label="obligatorio">*</span></label>
-        <input type="time" id="time" name="time" required 
-               class="beach-input focus-shine w-full px-4 py-3 rounded-lg bg-gray-50 text-gray-800"
-               aria-describedby="timeError">
-        <div id="timeError" class="text-red-500 text-sm mt-1 hidden" role="alert"></div>
-      </div>
-
-      <!-- Guests Field -->
-      <div>
-        <label id="guestsLabel" for="guests" class="block text-sm font-semibold text-gray-700 mb-2">Número de personas <span class="text-red-500" aria-label="obligatorio">*</span></label>
-        <select id="guests" name="guests" required 
-                class="beach-input focus-shine w-full px-4 py-3 rounded-lg bg-gray-50 text-gray-800"
-                aria-describedby="guestsError">
-          <option value="" id="selectPlaceholder">-- Selecciona --</option>
-          <option value="1">1 persona</option>
-          <option value="2">2 personas</option>
-          <option value="3">3 personas</option>
-          <option value="4">4 personas</option>
-          <option value="5">5 personas</option>
-          <option value="6">6 personas</option>
-          <option value="7">7 personas</option>
-          <option value="8">8 personas</option>
-          <option value="9">9 personas</option>
-          <option value="10+">10+ personas</option>
-        </select>
-        <div id="guestsError" class="text-red-500 text-sm mt-1 hidden" role="alert"></div>
-      </div>
-
-      <!-- Event Type Field -->
-      <div>
-        <label id="eventLabel" for="eventType" class="block text-sm font-semibold text-gray-700 mb-2">Tipo de evento</label>
-        <select id="eventType" name="eventType" 
-                class="beach-input focus-shine w-full px-4 py-3 rounded-lg bg-gray-50 text-gray-800"
-                aria-describedby="eventHelp">
-          <option value="" id="eventPlaceholder">-- Selecciona --</option>
-          <option value="dining" id="diningOption">Cena</option>
-          <option value="celebration" id="celebrationOption">Celebración</option>
-          <option value="business" id="businessOption">Evento de empresa</option>
-          <option value="organize" id="organizeOption">Organizar evento</option>
-        </select>
-        <div id="eventHelp" class="text-gray-500 text-xs mt-1">Opcional: Selecciona el tipo de evento si aplica</div>
-      </div>
-
-      <!-- Comments Field -->
-      <div>
-        <label id="commentsLabel" for="comments" class="block text-sm font-semibold text-gray-700 mb-2">Comentarios adicionales</label>
-        <textarea id="comments" name="comments" rows="3" 
-                  class="beach-input focus-shine w-full px-4 py-3 rounded-lg bg-gray-50 text-gray-800 placeholder-gray-500 resize-none" 
-                  placeholder="Alguna petición especial..."
-                  aria-describedby="commentsHelp"
-                  maxlength="500"></textarea>
-        <div id="commentsHelp" class="text-gray-500 text-xs mt-1">Opcional: Máximo 500 caracteres</div>
-      </div>
-
-      <!-- Submit Button -->
-      <button type="submit" id="submitBtn"
-              class="sand-btn w-full py-4 px-6 rounded-lg text-white font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
-        <span id="submitText">Enviar Reserva por WhatsApp</span>
-        <span id="loadingSpinner" class="hidden ml-2">
-          <svg class="animate-spin h-5 w-5 inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-          </svg>
-        </span>
+    <div class="relative">
+      <button id="languageToggle" class="theme-toggle p-3 rounded-full shadow-lg backdrop-filter backdrop-blur-lg flex items-center space-x-2" aria-label="Cambiar idioma">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
+        </svg>
+        <span id="currentLang" class="text-sm font-medium">ES</span>
       </button>
-    </form>
-  </main>
+      <div id="languageMenu" class="absolute top-full right-0 mt-2 bg-white rounded-lg shadow-xl border border-gray-200 py-2 min-w-[120px] hidden">
+        <button class="lang-option w-full px-4 py-2 text-left hover:bg-gray-50 flex items-center space-x-2" data-lang="es">
+          <span class="text-lg">🇪🇸</span>
+          <span class="text-sm">Español</span>
+        </button>
+        <button class="lang-option w-full px-4 py-2 text-left hover:bg-gray-50 flex items-center space-x-2" data-lang="en">
+          <span class="text-lg">🇬🇧</span>
+          <span class="text-sm">English</span>
+        </button>
+        <button class="lang-option w-full px-4 py-2 text-left hover:bg-gray-50 flex items-center space-x-2" data-lang="fr">
+          <span class="text-lg">🇫🇷</span>
+          <span class="text-sm">Français</span>
+        </button>
+        <button class="lang-option w-full px-4 py-2 text-left hover:bg-gray-50 flex items-center space-x-2" data-lang="de">
+          <span class="text-lg">🇩🇪</span>
+          <span class="text-sm">Deutsch</span>
+        </button>
+        <button class="lang-option w-full px-4 py-2 text-left hover:bg-gray-50 flex items-center space-x-2" data-lang="it">
+          <span class="text-lg">🇮🇹</span>
+          <span class="text-sm">Italiano</span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Theme Toggle -->
+    <button id="themeToggle" class="theme-toggle p-3 rounded-full shadow-lg backdrop-filter backdrop-blur-lg" aria-label="Cambiar tema">
+      <svg id="sunIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+      </svg>
+      <svg id="moonIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Main Container -->
+  <div class="container mx-auto px-4 py-8 min-h-screen flex items-center justify-center relative z-10">
+    <div class="w-full max-w-md">
+      <!-- Header -->
+      <div class="text-center mb-8 fade-in-up">
+        <div class="floating mb-6">
+          <div class="w-24 h-24 mx-auto bg-gradient-to-br from-white to-blue-50 rounded-full shadow-2xl flex items-center justify-center border-4 border-white/20 backdrop-blur-sm">
+            <svg class="w-12 h-12 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+        </div>
+        <h1 class="text-4xl font-bold text-white mb-3 tracking-tight">
+          <span class="bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
+            BuBo Beach Club
+          </span>
+        </h1>
+        <p class="text-white/90 text-xl font-light">Reserva tu experiencia perfecta</p>
+        <div class="mt-4 flex justify-center space-x-6 text-white/70 text-sm">
+          <span>Restaurante</span>
+          <span>•</span>
+          <span>Piscina</span>
+          <span>•</span>
+          <span>Eventos</span>
+        </div>
+      </div>
+
+      <!-- Reservation Form -->
+      <div class="card rounded-3xl p-8 fade-in-up" style="animation-delay: 0.2s;">
+        <form id="reservationForm" class="space-y-6">
+          <!-- Name Field -->
+          <div>
+            <label for="nombre" class="block text-sm font-semibold mb-3" style="color: var(--text-secondary);">
+              Nombre completo *
+            </label>
+            <input 
+              type="text" 
+              id="nombre" 
+              name="nombre" 
+              required 
+              class="form-input w-full px-4 py-4 rounded-xl text-base"
+              placeholder="Tu nombre completo"
+              autocomplete="name"
+            >
+          </div>
+
+          <!-- Phone Field -->
+          <div>
+            <label for="telefono" class="block text-sm font-semibold mb-3" style="color: var(--text-secondary);">
+              Teléfono (WhatsApp) *
+            </label>
+            <input 
+              type="tel" 
+              id="telefono" 
+              name="telefono" 
+              required 
+              class="form-input w-full px-4 py-4 rounded-xl text-base"
+              placeholder="+34 6XX XXX XXX"
+              autocomplete="tel"
+            >
+            <p class="text-xs text-gray-500 mt-1">Incluye prefijo +34 si no eres de España</p>
+          </div>
+
+          <!-- Guests Field -->
+          <div>
+            <label for="personas" class="block text-sm font-semibold mb-3" style="color: var(--text-secondary);">
+              Número de personas *
+            </label>
+            <input 
+              type="number" 
+              id="personas" 
+              name="personas" 
+              min="1" 
+              max="10"
+              value="2"
+              required 
+              class="form-input w-full px-4 py-4 rounded-xl text-base"
+            >
+          </div>
+
+          <!-- Date Field -->
+          <div>
+            <label for="fecha" class="block text-sm font-semibold mb-3" style="color: var(--text-secondary);">
+              Fecha de reserva *
+            </label>
+            <input 
+              type="date" 
+              id="fecha" 
+              name="fecha" 
+              required 
+              class="form-input w-full px-4 py-4 rounded-xl text-base"
+            >
+          </div>
+
+          <!-- Time Field -->
+          <div>
+            <label for="hora" class="block text-sm font-semibold mb-3" style="color: var(--text-secondary);">
+              Hora preferida
+            </label>
+            <input 
+              type="time" 
+              id="hora" 
+              name="hora" 
+              class="form-input w-full px-4 py-4 rounded-xl text-base"
+            >
+          </div>
+
+          <!-- Experience Field -->
+          <div>
+            <label for="experiencia" class="block text-sm font-semibold mb-3" style="color: var(--text-secondary);">
+              Experiencia *
+            </label>
+            <select 
+              id="experiencia" 
+              name="experiencia" 
+              required 
+              class="form-input w-full px-4 py-4 rounded-xl text-base"
+            >
+              <option value="" disabled selected>Selecciona experiencia</option>
+              <option value="Restaurante">Restaurante</option>
+              <option value="Piscina">Piscina</option>
+              <option value="Organizar Evento">Organizar Evento</option>
+              <option value="Comer en Restaurante">Comer en Restaurante</option>
+            </select>
+          </div>
+
+          <!-- GDPR Consent -->
+          <div class="space-y-4">
+            <div class="flex items-start space-x-3 p-4 bg-blue-50 rounded-xl border border-blue-200">
+              <input 
+                type="checkbox" 
+                id="consent" 
+                name="consent" 
+                required 
+                class="mt-1 w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+              >
+              <label for="consent" class="text-sm text-gray-700 leading-relaxed" data-translate="consent">
+                Acepto recibir comunicaciones por WhatsApp y he leído la política de privacidad.
+              </label>
+            </div>
+            
+            <!-- Privacy Policy Link -->
+            <div class="text-center">
+              <button 
+                type="button" 
+                id="privacyBtn"
+                class="text-blue-600 hover:text-blue-800 text-sm font-medium underline transition-colors"
+                data-translate="privacy_link"
+              >
+                Ver Política de Privacidad
+              </button>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <button 
+            type="submit" 
+            id="submitBtn"
+            class="btn-primary w-full py-5 px-6 rounded-xl font-bold text-lg shadow-2xl"
+          >
+            <span id="submitText">Confirmar por WhatsApp</span>
+            <span id="loadingText" class="hidden">
+              <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              Abriendo WhatsApp...
+            </span>
+          </button>
+        </form>
+
+        <!-- Success/Error Messages -->
+        <div id="messageContainer" class="mt-6 hidden">
+          <div id="successMessage" class="success-message text-white p-4 rounded-lg shadow-lg hidden">
+            <div class="flex items-center">
+              <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <div>
+                <h3 class="font-semibold">¡Reserva enviada!</h3>
+                <p class="text-sm opacity-90">Te contactaremos por WhatsApp para confirmar.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div id="errorMessage" class="error-message text-white p-4 rounded-lg shadow-lg hidden">
+            <div class="flex items-center">
+              <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <div>
+                <h3 class="font-semibold">Error al enviar</h3>
+                <p class="text-sm opacity-90">Por favor, inténtalo de nuevo.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Info -->
+      <div class="text-center mt-8 fade-in-up" style="animation-delay: 0.4s;">
+        <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+          <p class="text-white/90 text-sm leading-relaxed">
+            <strong class="text-white">BuBo Beach Club</strong><br>
+            <span data-translate="address">Playa de los Sueños, Costa del Sol</span><br>
+            <span class="text-white/70">+34 644 075 065 | <span data-translate="hours">Abierto 12:00 - 00:00</span></span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Privacy Policy Modal -->
+  <div id="privacyModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-hidden shadow-2xl">
+      <div class="p-6 border-b border-gray-200 flex justify-between items-center">
+        <h2 class="text-xl font-bold text-gray-900" data-translate="privacy_title">Política de Privacidad</h2>
+        <button id="closePrivacy" class="text-gray-500 hover:text-gray-700 p-2">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="p-6 overflow-y-auto max-h-[60vh]">
+        <div class="prose prose-sm max-w-none text-gray-700" data-translate="privacy_content">
+          <h3>Responsable del tratamiento</h3>
+          <p><strong>BuBo Beach Club</strong><br>
+          Playa de los Sueños, Costa del Sol<br>
+          Teléfono: +34 644 075 065</p>
+          
+          <h3>Finalidad del tratamiento</h3>
+          <p>Los datos personales que nos proporciones serán utilizados para:</p>
+          <ul>
+            <li>Gestionar tu reserva en nuestro beach club</li>
+            <li>Contactarte por WhatsApp para confirmar la disponibilidad</li>
+            <li>Enviarte información sobre nuestros servicios (solo si das tu consentimiento)</li>
+          </ul>
+          
+          <h3>Base legal</h3>
+          <p>El tratamiento se basa en tu consentimiento explícito y en la ejecución del contrato de reserva.</p>
+          
+          <h3>Conservación de datos</h3>
+          <p>Conservaremos tus datos durante el tiempo necesario para gestionar tu reserva y, posteriormente, durante el plazo legal establecido.</p>
+          
+          <h3>Tus derechos</h3>
+          <p>Puedes ejercer tus derechos de acceso, rectificación, supresión, portabilidad y oposición contactando con nosotros. También puedes darte de baja de nuestras comunicaciones en cualquier momento respondiendo "BAJA" a nuestros mensajes de WhatsApp.</p>
+          
+          <h3>Comunicación de datos</h3>
+          <p>No cedemos tus datos a terceros, salvo obligación legal.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script>
-    // Modern JavaScript features and APIs
-    class BeachClubReservation {
-      constructor() {
-        this.currentTheme = localStorage.getItem('theme') || 'light';
-        this.userLocation = null;
-        this.currentLanguage = 'es';
-        this.analytics = {
-          startTime: Date.now(),
-          interactions: 0,
-          fieldCompletions: {},
-          errors: []
-        };
-        this.autoSaveInterval = null;
-        this.rateLimitAttempts = 0;
-        this.maxAttempts = 3;
-        this.init();
-      }
-
-      init() {
-        this.setupTheme();
-        this.setupFormValidation();
-        this.setupEventListeners();
-        this.setupServiceWorker();
-        this.setupAutoSave();
-        this.setupAnalytics();
-        this.setupSmartSuggestions();
-        this.setupSecurity();
-        this.setupPWA();
-        this.recoverFormData();
-      }
-
-      // Theme Management
-      setupTheme() {
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-          document.documentElement.setAttribute('data-theme', savedTheme);
-          this.currentTheme = savedTheme;
-          this.updateThemeIcon();
-        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          this.currentTheme = 'dark';
-          this.updateThemeIcon();
-        }
-      }
-
-      toggleTheme() {
-        this.currentTheme = this.currentTheme === 'light' ? 'dark' : 'light';
-        document.documentElement.setAttribute('data-theme', this.currentTheme);
-        localStorage.setItem('theme', this.currentTheme);
-        this.updateThemeIcon();
-      }
-
-      updateThemeIcon() {
-        const icon = document.getElementById('themeIcon');
-        icon.textContent = this.currentTheme === 'light' ? '🌙' : '☀️';
-      }
-
-
-
-      // Form Validation
-      setupFormValidation() {
-        const form = document.getElementById('reservationForm');
-        const inputs = form.querySelectorAll('input[required], select[required]');
-
-        inputs.forEach(input => {
-          input.addEventListener('blur', () => this.validateField(input));
-          input.addEventListener('input', () => this.clearFieldError(input));
-        });
-      }
-
-      validateField(field) {
-        const errorDiv = document.getElementById(field.name + 'Error');
-        let isValid = true;
-        let errorMessage = '';
-
-        // Clear previous errors
-        this.clearFieldError(field);
-
-        // Required field validation
-        if (field.hasAttribute('required') && !field.value.trim()) {
-          errorMessage = 'Este campo es obligatorio';
-          isValid = false;
-        }
-
-        // Specific validations
-        switch (field.type) {
-          case 'email':
-            if (field.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value)) {
-              errorMessage = 'Ingresa un email válido';
-              isValid = false;
-            }
-            break;
-          case 'tel':
-            if (field.value && !/^[\+]?[0-9\s\-\(\)]{10,}$/.test(field.value)) {
-              errorMessage = 'Ingresa un teléfono válido';
-              isValid = false;
-            }
-            break;
-          case 'date':
-            if (field.value) {
-              const selectedDate = new Date(field.value);
-              const today = new Date();
-              today.setHours(0, 0, 0, 0);
-              if (selectedDate < today) {
-                errorMessage = 'La fecha no puede ser anterior a hoy';
-                isValid = false;
-              }
-            }
-            break;
-        }
-
-        if (!isValid && errorDiv) {
-          errorDiv.textContent = errorMessage;
-          errorDiv.classList.remove('hidden');
-          field.classList.add('border-red-500');
-        }
-
-        return isValid;
-      }
-
-      clearFieldError(field) {
-        const errorDiv = document.getElementById(field.name + 'Error');
-        if (errorDiv) {
-          errorDiv.classList.add('hidden');
-          field.classList.remove('border-red-500');
-        }
-      }
-
-      // Event Listeners
-      setupEventListeners() {
-        // Theme toggle
-        document.getElementById('themeToggle').addEventListener('click', () => {
-          this.toggleTheme();
-        });
-
-        // Language selector
-        document.getElementById('langSelector').addEventListener('change', (e) => {
-          this.updateLanguage(e.target.value);
-        });
-
-        // Form submission
-        document.getElementById('reservationForm').addEventListener('submit', (e) => {
-          this.handleFormSubmit(e);
-        });
-
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-          if (e.key === 'Tab') {
-            document.body.classList.add('keyboard-navigation');
-          }
-        });
-
-        document.addEventListener('mousedown', () => {
-          document.body.classList.remove('keyboard-navigation');
-        });
-      }
-
-      // Service Worker for caching
-      async setupServiceWorker() {
-        if ('serviceWorker' in navigator) {
-          try {
-            // In a real app, you'd register an actual service worker file
-            console.log('Service Worker support detected');
-          } catch (error) {
-            console.log('Service Worker registration failed:', error);
-          }
-        }
-      }
-
-      // Auto-save functionality
-      setupAutoSave() {
-        this.autoSaveInterval = setInterval(() => {
-          this.saveFormData();
-        }, 30000); // Save every 30 seconds
-
-        // Save on form changes
-        const form = document.getElementById('reservationForm');
-        form.addEventListener('input', () => {
-          clearTimeout(this.saveTimeout);
-          this.saveTimeout = setTimeout(() => {
-            this.saveFormData();
-          }, 2000);
-        });
-      }
-
-      saveFormData() {
-        const form = document.getElementById('reservationForm');
-        const formData = new FormData(form);
-        const data = {};
-        
-        for (let [key, value] of formData.entries()) {
-          data[key] = value;
-        }
-        
-        data.timestamp = Date.now();
-        data.language = this.currentLanguage;
-        
-        localStorage.setItem('autoSavedReservation', JSON.stringify(data));
-      }
-
-
-
-      recoverFormData() {
-        const saved = localStorage.getItem('autoSavedReservation');
-        if (saved) {
-          try {
-            const data = JSON.parse(saved);
-            const timeDiff = Date.now() - data.timestamp;
-            
-            // Only recover if less than 24 hours old
-            if (timeDiff < 24 * 60 * 60 * 1000) {
-              this.fillFormWithData(data);
-            }
-          } catch (error) {
-            console.log('Error recovering form data:', error);
-          }
-        }
-      }
-
-
-
-      fillFormWithData(data) {
-        Object.keys(data).forEach(key => {
-          const field = document.getElementById(key);
-          if (field && data[key]) {
-            field.value = data[key];
-          }
-        });
-        
-        if (data.language && data.language !== this.currentLanguage) {
-          document.getElementById('langSelector').value = data.language;
-          this.updateLanguage(data.language);
-        }
-      }
-
-      // Analytics and user behavior tracking
-      setupAnalytics() {
-        // Track form interactions
-        const form = document.getElementById('reservationForm');
-        const inputs = form.querySelectorAll('input, select, textarea');
-        
-        inputs.forEach(input => {
-          input.addEventListener('focus', () => {
-            this.analytics.interactions++;
-            this.analytics.fieldCompletions[input.name] = this.analytics.fieldCompletions[input.name] || { focuses: 0, completions: 0 };
-            this.analytics.fieldCompletions[input.name].focuses++;
-          });
-          
-          input.addEventListener('blur', () => {
-            if (input.value.trim()) {
-              this.analytics.fieldCompletions[input.name].completions++;
-            }
-          });
-        });
-
-        // Track time spent on form
-        window.addEventListener('beforeunload', () => {
-          this.analytics.totalTime = Date.now() - this.analytics.startTime;
-          localStorage.setItem('formAnalytics', JSON.stringify(this.analytics));
-        });
-      }
-
-      // Smart suggestions based on user input
-      setupSmartSuggestions() {
-        const phoneInput = document.getElementById('phone');
-        const nameInput = document.getElementById('name');
-        
-        // Phone number formatting
-        phoneInput.addEventListener('input', (e) => {
-          let value = e.target.value.replace(/\D/g, '');
-          
-          // Auto-format based on detected country
-          if (value.startsWith('34')) {
-            // Spanish format
-            value = value.replace(/(\d{2})(\d{3})(\d{3})(\d{3})/, '+$1 $2 $3 $4');
-          } else if (value.startsWith('49')) {
-            // German format
-            value = value.replace(/(\d{2})(\d{2})(\d{8})/, '+$1 $2 $3');
-          } else if (value.startsWith('33')) {
-            // French format
-            value = value.replace(/(\d{2})(\d{1})(\d{2})(\d{2})(\d{2})(\d{2})/, '+$1 $2 $3 $4 $5 $6');
-          }
-          
-          e.target.value = value;
-        });
-
-        // Name capitalization
-        nameInput.addEventListener('blur', (e) => {
-          const words = e.target.value.toLowerCase().split(' ');
-          const capitalized = words.map(word => 
-            word.charAt(0).toUpperCase() + word.slice(1)
-          ).join(' ');
-          e.target.value = capitalized;
-        });
-
-        // Smart date suggestions
-        const dateInput = document.getElementById('date');
-        dateInput.addEventListener('focus', () => {
-          const today = new Date();
-          const weekend = new Date(today);
-          weekend.setDate(today.getDate() + (6 - today.getDay())); // Next Saturday
-          
-          if (!dateInput.value) {
-            this.showDateSuggestions(weekend);
-          }
-        });
-      }
-
-      showDateSuggestions(suggestedDate) {
-        const suggestions = document.createElement('div');
-        suggestions.className = 'absolute bg-white border rounded-lg shadow-lg p-3 mt-1 z-10';
-        suggestions.innerHTML = `
-          <div class="text-sm text-gray-600 mb-2">Sugerencias:</div>
-          <button type="button" class="block w-full text-left px-2 py-1 hover:bg-gray-100 rounded text-sm" onclick="document.getElementById('date').value='${new Date().toISOString().split('T')[0]}'; this.parentElement.remove();">
-            Hoy - ${new Date().toLocaleDateString()}
-          </button>
-          <button type="button" class="block w-full text-left px-2 py-1 hover:bg-gray-100 rounded text-sm" onclick="document.getElementById('date').value='${suggestedDate.toISOString().split('T')[0]}'; this.parentElement.remove();">
-            Fin de semana - ${suggestedDate.toLocaleDateString()}
-          </button>
-        `;
-        
-        const dateField = document.getElementById('date');
-        dateField.parentElement.style.position = 'relative';
-        dateField.parentElement.appendChild(suggestions);
-        
-        // Remove suggestions when clicking outside
-        setTimeout(() => {
-          document.addEventListener('click', function removeSuggestions(e) {
-            if (!suggestions.contains(e.target) && e.target !== dateField) {
-              suggestions.remove();
-              document.removeEventListener('click', removeSuggestions);
-            }
-          });
-        }, 100);
-      }
-
-      // Enhanced security measures
-      setupSecurity() {
-        // Rate limiting for form submissions
-        const submitBtn = document.getElementById('submitBtn');
-        const originalSubmit = this.handleFormSubmit.bind(this);
-        
-        this.handleFormSubmit = (e) => {
-          if (this.rateLimitAttempts >= this.maxAttempts) {
-            e.preventDefault();
-            this.showNotification('Demasiados intentos. Espera 5 minutos.', 'error');
-            
-            setTimeout(() => {
-              this.rateLimitAttempts = 0;
-            }, 5 * 60 * 1000); // 5 minutes
-            return;
-          }
-          
-          this.rateLimitAttempts++;
-          originalSubmit(e);
-        };
-
-        // Input sanitization
-        const textInputs = document.querySelectorAll('input[type="text"], textarea');
-        textInputs.forEach(input => {
-          input.addEventListener('input', (e) => {
-            // Remove potentially harmful characters
-            e.target.value = e.target.value.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
-          });
-        });
-
-        // Honeypot field for bot detection
-        const honeypot = document.createElement('input');
-        honeypot.type = 'text';
-        honeypot.name = 'website';
-        honeypot.style.display = 'none';
-        honeypot.tabIndex = -1;
-        honeypot.autocomplete = 'off';
-        document.getElementById('reservationForm').appendChild(honeypot);
-      }
-
-      // Progressive Web App features
-      setupPWA() {
-        // Add to home screen prompt
-        let deferredPrompt;
-        
-        window.addEventListener('beforeinstallprompt', (e) => {
-          e.preventDefault();
-          deferredPrompt = e;
-        });
-
-        // Handle app installation
-        window.addEventListener('appinstalled', () => {
-          deferredPrompt = null;
-        });
-      }
-
-
-
-      // Form submission with loading state
-      async handleFormSubmit(e) {
-        e.preventDefault();
-        
-        const form = e.target;
-        const submitBtn = document.getElementById('submitBtn');
-        const submitText = document.getElementById('submitText');
-        const loadingSpinner = document.getElementById('loadingSpinner');
-
-        // Validate all fields
-        const inputs = form.querySelectorAll('input[required], select[required]');
-        let isFormValid = true;
-
-        inputs.forEach(input => {
-          if (!this.validateField(input)) {
-            isFormValid = false;
-          }
-        });
-
-        if (!isFormValid) {
-          return;
-        }
-
-        // Show loading state
-        submitBtn.disabled = true;
-        submitText.classList.add('hidden');
-        loadingSpinner.classList.remove('hidden');
-
-        try {
-          // Simulate processing time
-          await new Promise(resolve => setTimeout(resolve, 1000));
-
-          const formData = new FormData(form);
-          const reservationData = {
-            name: formData.get('name'),
-            phone: formData.get('phone'),
-            date: formData.get('date'),
-            time: formData.get('time'),
-            guests: formData.get('guests'),
-            eventType: formData.get('eventType'),
-            comments: formData.get('comments')
-          };
-
-          // Save to localStorage as backup
-          localStorage.setItem('lastReservation', JSON.stringify(reservationData));
-
-          // Create WhatsApp message
-          this.sendWhatsAppMessage(reservationData);
-          
-          this.showNotification('Reserva enviada correctamente');
-          
-        } catch (error) {
-          this.showNotification('Error al enviar la reserva. Inténtalo de nuevo.', 'error');
-        } finally {
-          // Reset button state
-          submitBtn.disabled = false;
-          submitText.classList.remove('hidden');
-          loadingSpinner.classList.add('hidden');
-        }
-      }
-
-      sendWhatsAppMessage(data) {
-        // Create English summary for business use
-        let englishMessage = `🏖️ *New Beach Club Reservation*\n\n`;
-        englishMessage += `👤 *Name:* ${data.name}\n`;
-        englishMessage += `📞 *Phone:* ${data.phone}\n`;
-        englishMessage += `📅 *Date:* ${data.date}\n`;
-        englishMessage += `🕐 *Time:* ${data.time}\n`;
-        englishMessage += `👥 *Guests:* ${data.guests}\n`;
-        
-        if (data.eventType) {
-          const eventTranslations = {
-            'dining': 'Dining',
-            'celebration': 'Celebration',
-            'business': 'Corporate Event',
-            'organize': 'Event Organization'
-          };
-          englishMessage += `🎉 *Event Type:* ${eventTranslations[data.eventType] || data.eventType}\n`;
-        }
-        
-        if (data.comments) {
-          englishMessage += `💬 *Comments:* ${data.comments}\n`;
-        }
-
-        // Add language identifier if form was filled in non-Spanish
-        if (this.currentLanguage !== 'es') {
-          const languageNames = {
-            'en': 'English',
-            'fr': 'French', 
-            'it': 'Italian',
-            'de': 'German'
-          };
-          englishMessage += `🌐 *Form Language:* ${languageNames[this.currentLanguage]}\n`;
-        }
-
-        // Add timestamp and unique ID
-        const reservationId = Date.now().toString(36).toUpperCase();
-        englishMessage += `🆔 *Reservation ID:* ${reservationId}\n`;
-        englishMessage += `⏰ *Submitted:* ${new Date().toLocaleString('en-US')}\n`;
-
-        // Add analytics data for business insights
-        if (this.analytics.totalTime) {
-          const timeSpent = Math.round((Date.now() - this.analytics.startTime) / 1000);
-          englishMessage += `📊 *Form completion time:* ${timeSpent}s\n`;
-        }
-
-        const whatsappNumber = "34644075065";
-        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(englishMessage)}`;
-        window.open(whatsappURL, '_blank');
-
-        // Store reservation with ID for future reference
-        const reservationRecord = {
-          ...data,
-          id: reservationId,
-          timestamp: new Date().toISOString(),
-          language: this.currentLanguage,
-          analytics: this.analytics
-        };
-        
-        // Save to localStorage for business records
-        const existingReservations = JSON.parse(localStorage.getItem('businessReservations') || '[]');
-        existingReservations.push(reservationRecord);
-        
-        // Keep only last 50 reservations to prevent storage overflow
-        if (existingReservations.length > 50) {
-          existingReservations.splice(0, existingReservations.length - 50);
-        }
-        
-        localStorage.setItem('businessReservations', JSON.stringify(existingReservations));
-      }
-
-
-
-      updateLanguage(lang) {
-        this.currentLanguage = lang; // Track current language
-        const t = translations[lang];
-        
-        // Add wavy animation to text elements
-        const textElements = document.querySelectorAll('#formTitle, #formSubtitle, label, #submitText');
-        textElements.forEach(el => {
-          el.classList.add('wavy-text');
-          setTimeout(() => el.classList.remove('wavy-text'), 500);
-        });
-
-        // Update text content
-        document.getElementById('formTitle').textContent = t.formTitle;
-        document.getElementById('formSubtitle').textContent = t.formSubtitle;
-        document.getElementById('nameLabel').innerHTML = `${t.nameLabel} <span class="text-red-500" aria-label="obligatorio">*</span>`;
-        document.getElementById('name').placeholder = t.namePlaceholder;
-        document.getElementById('phoneLabel').innerHTML = `${t.phoneLabel} <span class="text-red-500" aria-label="obligatorio">*</span>`;
-        document.getElementById('phone').placeholder = t.phonePlaceholder;
-        document.getElementById('dateLabel').innerHTML = `${t.dateLabel} <span class="text-red-500" aria-label="obligatorio">*</span>`;
-        document.getElementById('timeLabel').innerHTML = `${t.timeLabel} <span class="text-red-500" aria-label="obligatorio">*</span>`;
-        document.getElementById('guestsLabel').innerHTML = `${t.guestsLabel} <span class="text-red-500" aria-label="obligatorio">*</span>`;
-        document.getElementById('eventLabel').textContent = t.eventLabel;
-        document.getElementById('commentsLabel').textContent = t.commentsLabel;
-        document.getElementById('comments').placeholder = t.commentsPlaceholder;
-        document.getElementById('submitText').textContent = t.submitText;
-        
-        // Update select placeholders and options
-        document.getElementById('selectPlaceholder').textContent = t.select_placeholder;
-        document.getElementById('eventPlaceholder').textContent = t.select_placeholder;
-        document.getElementById('diningOption').textContent = t.diningOption;
-        document.getElementById('celebrationOption').textContent = t.celebrationOption;
-        document.getElementById('businessOption').textContent = t.businessOption;
-        document.getElementById('organizeOption').textContent = t.organizeOption;
-
-        // Save language preference
-        localStorage.setItem('preferredLanguage', lang);
-      }
-    }
-
+    // Multilingual Support
     const translations = {
       es: {
-        formTitle: "Reserva tu Mesa",
-        formSubtitle: "Disfruta de la mejor experiencia en nuestro beach club",
-        nameLabel: "Nombre completo",
-        namePlaceholder: "Tu nombre",
-        phoneLabel: "Teléfono",
-        phonePlaceholder: "+34 600 000 000",
-        dateLabel: "Fecha",
-        timeLabel: "Hora",
-        guestsLabel: "Número de personas",
-        eventLabel: "Tipo de evento",
-        commentsLabel: "Comentarios adicionales",
-        commentsPlaceholder: "Alguna petición especial...",
-        submitText: "Enviar Reserva por WhatsApp",
-        select_placeholder: "-- Selecciona --",
-        diningOption: "Cena",
-        celebrationOption: "Celebración",
-        businessOption: "Evento de empresa",
-        organizeOption: "Organizar evento"
+        title: 'BuBo Beach Club',
+        subtitle: 'Reserva tu experiencia perfecta',
+        menu_items: 'Restaurante • Piscina • Eventos',
+        name_label: 'Nombre completo *',
+        name_placeholder: 'Tu nombre completo',
+        phone_label: 'Teléfono (WhatsApp) *',
+        phone_placeholder: '+34 6XX XXX XXX',
+        phone_help: 'Incluye prefijo +34 si no eres de España',
+        people_label: 'Número de personas *',
+        date_label: 'Fecha de reserva *',
+        time_label: 'Hora preferida',
+        experience_label: 'Experiencia *',
+        experience_placeholder: 'Selecciona experiencia',
+        experience_restaurant: 'Restaurante',
+        experience_pool: 'Piscina',
+        experience_event: 'Organizar Evento',
+        experience_dining: 'Comer en Restaurante',
+        consent: 'Acepto recibir comunicaciones por WhatsApp y he leído la política de privacidad.',
+        privacy_link: 'Ver Política de Privacidad',
+        submit_btn: 'Confirmar por WhatsApp',
+        submit_loading: 'Abriendo WhatsApp...',
+        address: 'Playa de los Sueños, Costa del Sol',
+        hours: 'Abierto 12:00 - 00:00',
+        privacy_title: 'Política de Privacidad',
+        whatsapp_message: 'Reserva BuBo Beach ✨\n• Nombre: {name}\n• Tel: {phone}\n• Personas: {people}\n• Fecha: {date}\n• Hora: {time}\n• Experiencia: {experience}\n\nPuedes responder BAJA para darte de baja.',
+        success_title: '¡Reserva enviada!',
+        success_message: 'Te contactaremos por WhatsApp para confirmar.',
+        error_title: 'Error al enviar',
+        error_message: 'Por favor, inténtalo de nuevo.',
+        consent_required: 'Debes aceptar la política de privacidad.'
       },
       en: {
-        formTitle: "Reserve Your Table",
-        formSubtitle: "Enjoy the best experience at our beach club",
-        nameLabel: "Full Name",
-        namePlaceholder: "Your name",
-        phoneLabel: "Phone",
-        phonePlaceholder: "+1 555 000 000",
-        dateLabel: "Date",
-        timeLabel: "Time",
-        guestsLabel: "Number of guests",
-        eventLabel: "Event type",
-        commentsLabel: "Additional comments",
-        commentsPlaceholder: "Any special requests...",
-        submitText: "Send Reservation via WhatsApp",
-        select_placeholder: "-- Select --",
-        diningOption: "Dining",
-        celebrationOption: "Celebration",
-        businessOption: "Corporate event",
-        organizeOption: "Organize event"
+        title: 'BuBo Beach Club',
+        subtitle: 'Book your perfect experience',
+        menu_items: 'Restaurant • Pool • Events',
+        name_label: 'Full name *',
+        name_placeholder: 'Your full name',
+        phone_label: 'Phone (WhatsApp) *',
+        phone_placeholder: '+34 6XX XXX XXX',
+        phone_help: 'Include +34 prefix if not from Spain',
+        people_label: 'Number of people *',
+        date_label: 'Reservation date *',
+        time_label: 'Preferred time',
+        experience_label: 'Experience *',
+        experience_placeholder: 'Select experience',
+        experience_restaurant: 'Restaurant',
+        experience_pool: 'Pool',
+        experience_event: 'Organize Event',
+        experience_dining: 'Dining at Restaurant',
+        consent: 'I accept to receive WhatsApp communications and have read the privacy policy.',
+        privacy_link: 'View Privacy Policy',
+        submit_btn: 'Confirm via WhatsApp',
+        submit_loading: 'Opening WhatsApp...',
+        address: 'Dream Beach, Costa del Sol',
+        hours: 'Open 12:00 - 00:00',
+        privacy_title: 'Privacy Policy',
+        whatsapp_message: 'BuBo Beach Reservation ✨\n• Name: {name}\n• Phone: {phone}\n• People: {people}\n• Date: {date}\n• Time: {time}\n• Experience: {experience}\n\nReply STOP to unsubscribe.',
+        success_title: 'Reservation sent!',
+        success_message: 'We will contact you via WhatsApp to confirm.',
+        error_title: 'Error sending',
+        error_message: 'Please try again.',
+        consent_required: 'You must accept the privacy policy.'
       },
       fr: {
-        formTitle: "Réservez Votre Table",
-        formSubtitle: "Profitez de la meilleure expérience dans notre beach club",
-        nameLabel: "Nom complet",
-        namePlaceholder: "Votre nom",
-        phoneLabel: "Téléphone",
-        phonePlaceholder: "+33 6 00 00 00 00",
-        dateLabel: "Date",
-        timeLabel: "Heure",
-        guestsLabel: "Nombre d'invités",
-        eventLabel: "Type d'événement",
-        commentsLabel: "Commentaires supplémentaires",
-        commentsPlaceholder: "Des demandes spéciales...",
-        submitText: "Envoyer la Réservation par WhatsApp",
-        select_placeholder: "-- Sélectionner --",
-        diningOption: "Dîner",
-        celebrationOption: "Célébration",
-        businessOption: "Événement d'entreprise",
-        organizeOption: "Organiser un événement"
-      },
-      it: {
-        formTitle: "Prenota il Tuo Tavolo",
-        formSubtitle: "Goditi la migliore esperienza nel nostro beach club",
-        nameLabel: "Nome completo",
-        namePlaceholder: "Il tuo nome",
-        phoneLabel: "Telefono",
-        phonePlaceholder: "+39 333 000 0000",
-        dateLabel: "Data",
-        timeLabel: "Ora",
-        guestsLabel: "Numero di ospiti",
-        eventLabel: "Tipo di evento",
-        commentsLabel: "Commenti aggiuntivi",
-        commentsPlaceholder: "Richieste speciali...",
-        submitText: "Invia Prenotazione via WhatsApp",
-        select_placeholder: "-- Seleziona --",
-        diningOption: "Cena",
-        celebrationOption: "Celebrazione",
-        businessOption: "Evento aziendale",
-        organizeOption: "Organizza un evento"
+        title: 'BuBo Beach Club',
+        subtitle: 'Réservez votre expérience parfaite',
+        menu_items: 'Restaurant • Piscine • Événements',
+        name_label: 'Nom complet *',
+        name_placeholder: 'Votre nom complet',
+        phone_label: 'Téléphone (WhatsApp) *',
+        phone_placeholder: '+34 6XX XXX XXX',
+        phone_help: 'Inclure le préfixe +34 si pas d\'Espagne',
+        people_label: 'Nombre de personnes *',
+        date_label: 'Date de réservation *',
+        time_label: 'Heure préférée',
+        experience_label: 'Expérience *',
+        experience_placeholder: 'Sélectionner expérience',
+        experience_restaurant: 'Restaurant',
+        experience_pool: 'Piscine',
+        experience_event: 'Organiser Événement',
+        experience_dining: 'Dîner au Restaurant',
+        consent: 'J\'accepte de recevoir des communications WhatsApp et j\'ai lu la politique de confidentialité.',
+        privacy_link: 'Voir Politique de Confidentialité',
+        submit_btn: 'Confirmer via WhatsApp',
+        submit_loading: 'Ouverture WhatsApp...',
+        address: 'Plage des Rêves, Costa del Sol',
+        hours: 'Ouvert 12:00 - 00:00',
+        privacy_title: 'Politique de Confidentialité',
+        whatsapp_message: 'Réservation BuBo Beach ✨\n• Nom: {name}\n• Tél: {phone}\n• Personnes: {people}\n• Date: {date}\n• Heure: {time}\n• Expérience: {experience}\n\nRépondez STOP pour vous désabonner.',
+        success_title: 'Réservation envoyée!',
+        success_message: 'Nous vous contacterons via WhatsApp pour confirmer.',
+        error_title: 'Erreur d\'envoi',
+        error_message: 'Veuillez réessayer.',
+        consent_required: 'Vous devez accepter la politique de confidentialité.'
       },
       de: {
-        formTitle: "Reservieren Sie Ihren Tisch",
-        formSubtitle: "Genießen Sie das beste Erlebnis in unserem Beach Club",
-        nameLabel: "Vollständiger Name",
-        namePlaceholder: "Ihr Name",
-        phoneLabel: "Telefon",
-        phonePlaceholder: "+49 30 12345678",
-        dateLabel: "Datum",
-        timeLabel: "Uhrzeit",
-        guestsLabel: "Anzahl der Gäste",
-        eventLabel: "Art der Veranstaltung",
-        commentsLabel: "Zusätzliche Kommentare",
-        commentsPlaceholder: "Besondere Wünsche...",
-        submitText: "Reservierung per WhatsApp senden",
-        select_placeholder: "-- Auswählen --",
-        diningOption: "Abendessen",
-        celebrationOption: "Feier",
-        businessOption: "Firmenveranstaltung",
-        organizeOption: "Veranstaltung organisieren"
+        title: 'BuBo Beach Club',
+        subtitle: 'Buchen Sie Ihr perfektes Erlebnis',
+        menu_items: 'Restaurant • Pool • Events',
+        name_label: 'Vollständiger Name *',
+        name_placeholder: 'Ihr vollständiger Name',
+        phone_label: 'Telefon (WhatsApp) *',
+        phone_placeholder: '+34 6XX XXX XXX',
+        phone_help: 'Präfix +34 hinzufügen, wenn nicht aus Spanien',
+        people_label: 'Anzahl Personen *',
+        date_label: 'Reservierungsdatum *',
+        time_label: 'Bevorzugte Zeit',
+        experience_label: 'Erlebnis *',
+        experience_placeholder: 'Erlebnis auswählen',
+        experience_restaurant: 'Restaurant',
+        experience_pool: 'Pool',
+        experience_event: 'Event organisieren',
+        experience_dining: 'Im Restaurant essen',
+        consent: 'Ich akzeptiere WhatsApp-Kommunikation und habe die Datenschutzrichtlinie gelesen.',
+        privacy_link: 'Datenschutzrichtlinie anzeigen',
+        submit_btn: 'Via WhatsApp bestätigen',
+        submit_loading: 'WhatsApp öffnen...',
+        address: 'Traumstrand, Costa del Sol',
+        hours: 'Geöffnet 12:00 - 00:00',
+        privacy_title: 'Datenschutzrichtlinie',
+        whatsapp_message: 'BuBo Beach Reservierung ✨\n• Name: {name}\n• Tel: {phone}\n• Personen: {people}\n• Datum: {date}\n• Zeit: {time}\n• Erlebnis: {experience}\n\nAntworten Sie STOP zum Abmelden.',
+        success_title: 'Reservierung gesendet!',
+        success_message: 'Wir kontaktieren Sie via WhatsApp zur Bestätigung.',
+        error_title: 'Sendefehler',
+        error_message: 'Bitte versuchen Sie es erneut.',
+        consent_required: 'Sie müssen die Datenschutzrichtlinie akzeptieren.'
+      },
+      it: {
+        title: 'BuBo Beach Club',
+        subtitle: 'Prenota la tua esperienza perfetta',
+        menu_items: 'Ristorante • Piscina • Eventi',
+        name_label: 'Nome completo *',
+        name_placeholder: 'Il tuo nome completo',
+        phone_label: 'Telefono (WhatsApp) *',
+        phone_placeholder: '+34 6XX XXX XXX',
+        phone_help: 'Includi prefisso +34 se non dalla Spagna',
+        people_label: 'Numero di persone *',
+        date_label: 'Data prenotazione *',
+        time_label: 'Orario preferito',
+        experience_label: 'Esperienza *',
+        experience_placeholder: 'Seleziona esperienza',
+        experience_restaurant: 'Ristorante',
+        experience_pool: 'Piscina',
+        experience_event: 'Organizzare Evento',
+        experience_dining: 'Cenare al Ristorante',
+        consent: 'Accetto di ricevere comunicazioni WhatsApp e ho letto l\'informativa sulla privacy.',
+        privacy_link: 'Vedi Informativa Privacy',
+        submit_btn: 'Conferma via WhatsApp',
+        submit_loading: 'Apertura WhatsApp...',
+        address: 'Spiaggia dei Sogni, Costa del Sol',
+        hours: 'Aperto 12:00 - 00:00',
+        privacy_title: 'Informativa sulla Privacy',
+        whatsapp_message: 'Prenotazione BuBo Beach ✨\n• Nome: {name}\n• Tel: {phone}\n• Persone: {people}\n• Data: {date}\n• Ora: {time}\n• Esperienza: {experience}\n\nRispondi STOP per cancellarti.',
+        success_title: 'Prenotazione inviata!',
+        success_message: 'Ti contatteremo via WhatsApp per confermare.',
+        error_title: 'Errore invio',
+        error_message: 'Per favore riprova.',
+        consent_required: 'Devi accettare l\'informativa sulla privacy.'
       }
     };
 
-    function updateLanguage(lang) {
-      const t = translations[lang];
-      
-      // Add wavy animation to text elements
-      const textElements = document.querySelectorAll('#formTitle, #formSubtitle, label, #submitText span');
-      textElements.forEach(el => {
-        el.classList.add('wavy-text');
-        setTimeout(() => el.classList.remove('wavy-text'), 500);
-      });
+    let currentLanguage = localStorage.getItem('language') || 'es';
 
-      // Update text content
-      document.getElementById('formTitle').textContent = t.formTitle;
-      document.getElementById('formSubtitle').textContent = t.formSubtitle;
-      document.getElementById('nameLabel').textContent = t.nameLabel;
-      document.getElementById('name').placeholder = t.namePlaceholder;
-      document.getElementById('phoneLabel').textContent = t.phoneLabel;
-      document.getElementById('phone').placeholder = t.phonePlaceholder;
-      document.getElementById('dateLabel').textContent = t.dateLabel;
-      document.getElementById('timeLabel').textContent = t.timeLabel;
-      document.getElementById('guestsLabel').textContent = t.guestsLabel;
-      document.getElementById('eventLabel').textContent = t.eventLabel;
-      document.getElementById('commentsLabel').textContent = t.commentsLabel;
-      document.getElementById('comments').placeholder = t.commentsPlaceholder;
-      document.getElementById('submitText').textContent = t.submitText;
-      
-      // Update select placeholders and options
-      document.getElementById('selectPlaceholder').textContent = t.select_placeholder;
-      document.getElementById('eventPlaceholder').textContent = t.select_placeholder;
-      document.getElementById('diningOption').textContent = t.diningOption;
-      document.getElementById('celebrationOption').textContent = t.celebrationOption;
-      document.getElementById('businessOption').textContent = t.businessOption;
-      document.getElementById('organizeOption').textContent = t.organizeOption;
+    // Language functionality
+    const languageToggle = document.getElementById('languageToggle');
+    const languageMenu = document.getElementById('languageMenu');
+    const currentLangSpan = document.getElementById('currentLang');
+    const langOptions = document.querySelectorAll('.lang-option');
+
+    // Update current language display
+    function updateLanguageDisplay() {
+      currentLangSpan.textContent = currentLanguage.toUpperCase();
     }
 
-    // Initialize the application
-    let app;
-    
-    // Wait for DOM to be fully loaded
-    document.addEventListener('DOMContentLoaded', function() {
-      app = new BeachClubReservation();
+    // Translate page content
+    function translatePage() {
+      const elements = document.querySelectorAll('[data-translate]');
+      elements.forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[currentLanguage] && translations[currentLanguage][key]) {
+          if (element.tagName === 'INPUT' && element.type !== 'checkbox') {
+            if (element.placeholder !== undefined) {
+              element.placeholder = translations[currentLanguage][key];
+            } else {
+              element.value = translations[currentLanguage][key];
+            }
+          } else if (element.tagName === 'OPTION') {
+            element.textContent = translations[currentLanguage][key];
+          } else {
+            element.innerHTML = translations[currentLanguage][key];
+          }
+        }
+      });
+
+      // Update specific elements
+      document.querySelector('h1 span').textContent = translations[currentLanguage].title;
+      document.querySelector('h1').nextElementSibling.textContent = translations[currentLanguage].subtitle;
+      document.querySelector('.text-white\\/70').innerHTML = translations[currentLanguage].menu_items;
       
-      // Set minimum date to today
-      document.getElementById('date').min = new Date().toISOString().split('T')[0];
+      // Update form labels
+      document.querySelector('label[for="nombre"]').textContent = translations[currentLanguage].name_label;
+      document.querySelector('label[for="telefono"]').textContent = translations[currentLanguage].phone_label;
+      document.querySelector('label[for="personas"]').textContent = translations[currentLanguage].people_label;
+      document.querySelector('label[for="fecha"]').textContent = translations[currentLanguage].date_label;
+      document.querySelector('label[for="hora"]').textContent = translations[currentLanguage].time_label;
+      document.querySelector('label[for="experiencia"]').textContent = translations[currentLanguage].experience_label;
       
-      // Auto-detect and set preferred language
-      const savedLanguage = localStorage.getItem('preferredLanguage');
-      const browserLanguage = navigator.language.split('-')[0];
+      // Update placeholders
+      document.getElementById('nombre').placeholder = translations[currentLanguage].name_placeholder;
+      document.getElementById('telefono').placeholder = translations[currentLanguage].phone_placeholder;
       
-      if (savedLanguage && translations[savedLanguage]) {
-        document.getElementById('langSelector').value = savedLanguage;
-        app.updateLanguage(savedLanguage);
-      } else if (translations[browserLanguage]) {
-        document.getElementById('langSelector').value = browserLanguage;
-        app.updateLanguage(browserLanguage);
+      // Update help text
+      document.querySelector('.text-xs.text-gray-500').textContent = translations[currentLanguage].phone_help;
+      
+      // Update select options
+      const experienceSelect = document.getElementById('experiencia');
+      experienceSelect.options[0].textContent = translations[currentLanguage].experience_placeholder;
+      experienceSelect.options[1].textContent = translations[currentLanguage].experience_restaurant;
+      experienceSelect.options[2].textContent = translations[currentLanguage].experience_pool;
+      experienceSelect.options[3].textContent = translations[currentLanguage].experience_event;
+      experienceSelect.options[4].textContent = translations[currentLanguage].experience_dining;
+      
+      // Update button text
+      document.getElementById('submitText').textContent = translations[currentLanguage].submit_btn;
+      document.getElementById('loadingText').innerHTML = `
+        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        ${translations[currentLanguage].submit_loading}
+      `;
+    }
+
+    // Language menu toggle
+    languageToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      languageMenu.classList.toggle('hidden');
+    });
+
+    // Close language menu when clicking outside
+    document.addEventListener('click', () => {
+      languageMenu.classList.add('hidden');
+    });
+
+    // Language selection
+    langOptions.forEach(option => {
+      option.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentLanguage = option.getAttribute('data-lang');
+        localStorage.setItem('language', currentLanguage);
+        updateLanguageDisplay();
+        translatePage();
+        languageMenu.classList.add('hidden');
+      });
+    });
+
+    // Initialize language
+    updateLanguageDisplay();
+    translatePage();
+
+    // Theme Toggle Functionality
+    const themeToggle = document.getElementById('themeToggle');
+    const sunIcon = document.getElementById('sunIcon');
+    const moonIcon = document.getElementById('moonIcon');
+    const body = document.body;
+
+    // Check for saved theme preference or default to light mode
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    if (currentTheme === 'dark') {
+      body.setAttribute('data-theme', 'dark');
+      sunIcon.classList.add('hidden');
+      moonIcon.classList.remove('hidden');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      const isDark = body.getAttribute('data-theme') === 'dark';
+      
+      if (isDark) {
+        body.removeAttribute('data-theme');
+        sunIcon.classList.remove('hidden');
+        moonIcon.classList.add('hidden');
+        localStorage.setItem('theme', 'light');
+      } else {
+        body.setAttribute('data-theme', 'dark');
+        sunIcon.classList.add('hidden');
+        moonIcon.classList.remove('hidden');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+
+    // Privacy Policy Modal
+    const privacyBtn = document.getElementById('privacyBtn');
+    const privacyModal = document.getElementById('privacyModal');
+    const closePrivacy = document.getElementById('closePrivacy');
+
+    privacyBtn.addEventListener('click', () => {
+      privacyModal.classList.remove('hidden');
+    });
+
+    closePrivacy.addEventListener('click', () => {
+      privacyModal.classList.add('hidden');
+    });
+
+    privacyModal.addEventListener('click', (e) => {
+      if (e.target === privacyModal) {
+        privacyModal.classList.add('hidden');
+      }
+    });
+
+    // Set minimum date to today
+    const dateInput = document.getElementById('fecha');
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.min = today;
+
+    // WhatsApp destination number
+    const DESTINO = '34644075065'; // +34 644 07 50 65 without '+'
+
+    // Form Submission Handler
+    const form = document.getElementById('reservationForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const submitText = document.getElementById('submitText');
+    const loadingText = document.getElementById('loadingText');
+    const messageContainer = document.getElementById('messageContainer');
+    const successMessage = document.getElementById('successMessage');
+    const errorMessage = document.getElementById('errorMessage');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Check GDPR consent
+      if (!document.getElementById('consent').checked) {
+        alert(translations[currentLanguage].consent_required);
+        return;
       }
       
-      // Load any saved form data
-      const savedReservation = localStorage.getItem('lastReservation');
-      if (savedReservation) {
-        try {
-          const data = JSON.parse(savedReservation);
-          console.log('Previous reservation found:', data);
-        } catch (error) {
-          console.log('Error loading saved reservation:', error);
+      // Show loading state
+      submitBtn.disabled = true;
+      submitText.classList.add('hidden');
+      loadingText.classList.remove('hidden');
+      
+      // Hide previous messages
+      if (messageContainer) {
+        messageContainer.classList.add('hidden');
+        successMessage.classList.add('hidden');
+        errorMessage.classList.add('hidden');
+      }
+
+      // Get form data
+      const nombre = document.getElementById('nombre').value.trim();
+      const telCli = document.getElementById('telefono').value.trim();
+      const pax = document.getElementById('personas').value;
+      const fecha = document.getElementById('fecha').value;
+      const hora = document.getElementById('hora').value || '-';
+      const exp = document.getElementById('experiencia').value;
+
+      // Basic phone normalization (if no prefix provided)
+      const telFmt = telCli.startsWith('+') ? telCli : '+34' + telCli.replace(/\D+/g,'');
+
+      // Create WhatsApp message with unsubscribe option
+      const mensaje = translations[currentLanguage].whatsapp_message
+        .replace('{name}', nombre)
+        .replace('{phone}', telFmt)
+        .replace('{people}', pax)
+        .replace('{date}', fecha)
+        .replace('{time}', hora)
+        .replace('{experience}', exp);
+
+      // Simulate processing time
+      await new Promise(resolve => setTimeout(resolve, 1500));
+
+      try {
+        // Create WhatsApp URL
+        const url = `https://wa.me/${DESTINO}?text=${encodeURIComponent(mensaje)}`;
+        
+        // Open WhatsApp
+        const opened = window.open(url, '_blank');
+        
+        if (!opened) {
+          // Fallback if popup blocked
+          const fallbackLink = document.createElement('a');
+          fallbackLink.href = url;
+          fallbackLink.target = '_blank';
+          fallbackLink.textContent = 'Abrir WhatsApp manualmente';
+          fallbackLink.className = 'text-blue-600 hover:underline font-medium';
+          
+          alert('Por favor, permite ventanas emergentes o usa el enlace que aparecerá.');
+          document.body.appendChild(fallbackLink);
+          fallbackLink.click();
+          document.body.removeChild(fallbackLink);
+        }
+        
+        // Show success message
+        if (messageContainer) {
+          messageContainer.classList.remove('hidden');
+          successMessage.classList.remove('hidden');
+          
+          // Update success message text
+          successMessage.querySelector('h3').textContent = translations[currentLanguage].success_title;
+          successMessage.querySelector('p').textContent = translations[currentLanguage].success_message;
+          
+          // Auto-hide success message after 5 seconds
+          setTimeout(() => {
+            messageContainer.classList.add('hidden');
+            successMessage.classList.add('hidden');
+          }, 5000);
+        }
+        
+        // Reset form
+        form.reset();
+        // Reset personas to default value
+        document.getElementById('personas').value = '2';
+        
+      } catch (error) {
+        console.error('Error:', error);
+        
+        // Show error message
+        if (messageContainer) {
+          messageContainer.classList.remove('hidden');
+          errorMessage.classList.remove('hidden');
+          
+          // Update error message text
+          errorMessage.querySelector('h3').textContent = translations[currentLanguage].error_title;
+          errorMessage.querySelector('p').textContent = translations[currentLanguage].error_message;
+          
+          // Auto-hide error message after 5 seconds
+          setTimeout(() => {
+            messageContainer.classList.add('hidden');
+            errorMessage.classList.add('hidden');
+          }, 5000);
+        }
+      } finally {
+        // Reset button state
+        submitBtn.disabled = false;
+        submitText.classList.remove('hidden');
+        loadingText.classList.add('hidden');
+      }
+    });
+
+    // Form validation enhancements
+    const inputs = form.querySelectorAll('input, select');
+    inputs.forEach(input => {
+      input.addEventListener('blur', validateField);
+      input.addEventListener('input', clearFieldError);
+    });
+
+    function validateField(e) {
+      const field = e.target;
+      const value = field.value.trim();
+      
+      // Remove existing error styling
+      field.classList.remove('border-red-500');
+      
+      // Validate required fields
+      if (field.hasAttribute('required') && !value) {
+        field.classList.add('border-red-500');
+        return false;
+      }
+      
+      // Validate phone number
+      if (field.type === 'tel' && value) {
+        const phoneRegex = /^[\+]?[0-9\s\-\(\)]{9,}$/;
+        if (!phoneRegex.test(value)) {
+          field.classList.add('border-red-500');
+          return false;
         }
       }
-
-      // Show welcome message for first-time users
-      if (!localStorage.getItem('hasVisited')) {
-        setTimeout(() => {
-          app.showNotification('¡Bienvenido! Completa el formulario para reservar tu mesa 🏖️');
-          localStorage.setItem('hasVisited', 'true');
-        }, 1000);
+      
+      // Validate number of people
+      if (field.type === 'number' && value) {
+        const num = parseInt(value);
+        if (num < 1 || num > 10) {
+          field.classList.add('border-red-500');
+          return false;
+        }
       }
+      
+      return true;
+    }
+
+    function clearFieldError(e) {
+      e.target.classList.remove('border-red-500');
+    }
+
+    // Add smooth scrolling for better UX
+    document.documentElement.style.scrollBehavior = 'smooth';
+
+    // Add entrance animations with stagger
+    const animatedElements = document.querySelectorAll('.fade-in-up');
+    animatedElements.forEach((el, index) => {
+      el.style.animationDelay = `${index * 0.1}s`;
     });
 
-    // Handle page visibility changes for better performance
-    document.addEventListener('visibilitychange', function() {
-      if (document.hidden) {
-        // Page is hidden, pause non-essential animations
-        document.body.style.animationPlayState = 'paused';
-      } else {
-        // Page is visible, resume animations
-        document.body.style.animationPlayState = 'running';
-      }
-    });
-
-    // Handle online/offline status
-    window.addEventListener('online', function() {
-      if (app) {
-        app.showNotification('Conexión restaurada');
-      }
-    });
-
-    window.addEventListener('offline', function() {
-      if (app) {
-        app.showNotification('Sin conexión a internet', 'error');
+    // Add focus management for accessibility
+    form.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
+        e.preventDefault();
+        const formElements = Array.from(form.elements);
+        const currentIndex = formElements.indexOf(e.target);
+        const nextElement = formElements[currentIndex + 1];
+        
+        if (nextElement && nextElement.type !== 'submit') {
+          nextElement.focus();
+        } else {
+          form.requestSubmit();
+        }
       }
     });
   </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9712b7c18793cbcf',t:'MTc1NTUzMzgwOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9714e97a27c4314e',t:'MTc1NTU1NjgxNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
