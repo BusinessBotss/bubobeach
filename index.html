@@ -303,11 +303,221 @@
       background: #2563eb;
     }
 
-    /* Responsive adjustments */
-    @media (max-width: 640px) {
+    /* Mobile-first responsive design */
+    @media (max-width: 480px) {
+      body {
+        background-size: 300% 300%;
+        animation: oceanWave 8s ease-in-out infinite;
+      }
+
+      .container {
+        padding: 1rem;
+      }
+
+      .card {
+        margin: 0.5rem;
+        padding: 1.25rem;
+        border-radius: 1.5rem;
+      }
+
+      .floating .w-24 {
+        width: 4rem;
+        height: 4rem;
+      }
+
+      .floating svg {
+        width: 2rem;
+        height: 2rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+      }
+
+      .text-xl {
+        font-size: 1rem;
+      }
+
+      .form-input {
+        padding: 0.875rem 1rem;
+        font-size: 1rem;
+      }
+
+      .btn-primary {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+      }
+
+      .space-y-6 > * + * {
+        margin-top: 1rem;
+      }
+
+      .fixed.top-4.right-4 {
+        top: 1rem;
+        right: 1rem;
+        flex-direction: row;
+        space-y: 0;
+        gap: 0.5rem;
+      }
+
+      .theme-toggle {
+        padding: 0.625rem;
+      }
+
+      .theme-toggle svg {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+
+      #languageMenu {
+        right: 0;
+        min-width: 100px;
+      }
+
+      .lang-option {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.8rem;
+      }
+
+      .lang-option span:first-child {
+        font-size: 1rem;
+      }
+    }
+
+    /* Tablet adjustments */
+    @media (min-width: 481px) and (max-width: 768px) {
+      .container {
+        padding: 1.5rem;
+      }
+
       .card {
         margin: 1rem;
-        padding: 1.5rem;
+        padding: 2rem;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .floating .w-24 {
+        width: 5rem;
+        height: 5rem;
+      }
+
+      .floating svg {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      .form-input {
+        padding: 1rem 1.25rem;
+      }
+
+      .btn-primary {
+        padding: 1.25rem 1.5rem;
+      }
+    }
+
+    /* Large tablet and small desktop */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .card {
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    /* Touch-friendly interactions */
+    @media (hover: none) and (pointer: coarse) {
+      .card:hover {
+        transform: none;
+        box-shadow: 
+          0 20px 40px var(--shadow-color),
+          0 0 0 1px rgba(255, 255, 255, 0.1);
+      }
+
+      .btn-primary:hover {
+        transform: none;
+        background: var(--accent-gradient);
+      }
+
+      .form-input:focus {
+        transform: none;
+      }
+
+      .theme-toggle:hover {
+        transform: none;
+      }
+    }
+
+    /* Landscape mobile optimization */
+    @media (max-width: 768px) and (orientation: landscape) {
+      .min-h-screen {
+        min-height: auto;
+        padding: 2rem 0;
+      }
+
+      .floating {
+        margin-bottom: 1rem;
+      }
+
+      .floating .w-24, .floating .w-20, .floating .w-16 {
+        width: 3rem;
+        height: 3rem;
+      }
+
+      .floating svg {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+
+      h1 {
+        font-size: 1.75rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .text-xl {
+        font-size: 0.875rem;
+      }
+
+      .space-y-6 > * + * {
+        margin-top: 0.75rem;
+      }
+    }
+
+    /* High DPI displays */
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      .card {
+        backdrop-filter: blur(25px);
+      }
+
+      .form-input {
+        backdrop-filter: blur(15px);
+      }
+    }
+
+    /* Reduced motion preferences */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      body::before {
+        animation: none;
+      }
+
+      body {
+        animation: none;
+      }
+
+      .floating {
+        animation: none;
       }
     }
   </style>
@@ -571,18 +781,18 @@
   </div>
 
   <!-- Privacy Policy Modal -->
-  <div id="privacyModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-hidden shadow-2xl">
-      <div class="p-6 border-b border-gray-200 flex justify-between items-center">
-        <h2 class="text-xl font-bold text-gray-900" data-translate="privacy_title">Política de Privacidad</h2>
-        <button id="closePrivacy" class="text-gray-500 hover:text-gray-700 p-2">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <div id="privacyModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-2 sm:p-4">
+    <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] sm:max-h-[80vh] overflow-hidden shadow-2xl mx-2 sm:mx-0">
+      <div class="p-4 sm:p-6 border-b border-gray-200 flex justify-between items-center">
+        <h2 class="text-lg sm:text-xl font-bold text-gray-900" data-translate="privacy_title">Política de Privacidad</h2>
+        <button id="closePrivacy" class="text-gray-500 hover:text-gray-700 p-2 -mr-2">
+          <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
       </div>
-      <div class="p-6 overflow-y-auto max-h-[60vh]">
-        <div class="prose prose-sm max-w-none text-gray-700" data-translate="privacy_content">
+      <div class="p-4 sm:p-6 overflow-y-auto max-h-[70vh] sm:max-h-[60vh]">
+        <div class="prose prose-sm max-w-none text-gray-700 text-sm sm:text-base" data-translate="privacy_content">
           <h3>Responsable del tratamiento</h3>
           <p><strong>BuBo Beach Club</strong><br>
           Playa de los Sueños, Costa del Sol<br>
@@ -1123,6 +1333,80 @@
         }
       }
     });
+
+    // Mobile-specific enhancements
+    function isMobile() {
+      return window.innerWidth <= 768 || /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
+
+    // Prevent zoom on input focus for iOS
+    if (isMobile()) {
+      const inputs = document.querySelectorAll('input, select, textarea');
+      inputs.forEach(input => {
+        input.addEventListener('focus', () => {
+          if (input.type !== 'date' && input.type !== 'time') {
+            input.style.fontSize = '16px';
+          }
+        });
+        
+        input.addEventListener('blur', () => {
+          input.style.fontSize = '';
+        });
+      });
+
+      // Add touch feedback for buttons
+      const buttons = document.querySelectorAll('button');
+      buttons.forEach(button => {
+        button.addEventListener('touchstart', () => {
+          button.style.transform = 'scale(0.98)';
+        });
+        
+        button.addEventListener('touchend', () => {
+          setTimeout(() => {
+            button.style.transform = '';
+          }, 100);
+        });
+      });
+
+      // Improve scroll behavior on mobile
+      document.body.style.webkitOverflowScrolling = 'touch';
+      
+      // Handle viewport height changes (mobile keyboard)
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+      
+      window.addEventListener('resize', () => {
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+      });
+    }
+
+    // Optimize animations for mobile performance
+    if (isMobile()) {
+      // Reduce animation complexity on mobile
+      const style = document.createElement('style');
+      style.textContent = `
+        @media (max-width: 768px) {
+          .card::before {
+            display: none;
+          }
+          .btn-primary::before {
+            display: none;
+          }
+          body::before {
+            background: radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.2) 0%, transparent 70%);
+          }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+
+    // Handle orientation changes
+    window.addEventListener('orientationchange', () => {
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 100);
+    });
   </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9714e97a27c4314e',t:'MTc1NTU1NjgxNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9714f3bd47560469',t:'MTc1NTU1NzIzNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
